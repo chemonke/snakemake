@@ -1,0 +1,28 @@
+host: nixos
+Building DAG of jobs...
+Relative file path './input.txt' starts with './'. This is redundant and strongly discouraged. It can also lead to inconsistent results of the file-matching approach used by Snakemake. You can simply omit the './' for relative file paths.
+Relative file path './output.txt' starts with './'. This is redundant and strongly discouraged. It can also lead to inconsistent results of the file-matching approach used by Snakemake. You can simply omit the './' for relative file paths.
+Using shell: /nix/store/mm0pa3z7kk6jh1i9rkxqxjqmd8h1qpxf-bash-5.2p37/bin/bash
+Provided cores: 22
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count
+-----------  -------
+count_words        1
+total              1
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Nov 13 11:04:13 2024]
+localrule count_words:
+    input: ./input.txt
+    output: ./output.txt
+    jobid: 0
+    reason: Missing output files: ./output.txt
+    resources: tmpdir=/tmp
+
+[Wed Nov 13 11:04:13 2024]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: .snakemake/log/2024-11-13T110413.606700.snakemake.log

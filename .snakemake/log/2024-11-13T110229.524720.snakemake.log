@@ -1,0 +1,7 @@
+host: nixos
+Building DAG of jobs...
+MissingInputException in rule count_words in file /home/cbo/msc/csa/prot_ligand/snakefile, line 3:
+Missing input files for rule count_words:
+    output: data/output.txt
+    affected files:
+        data/input.txt
