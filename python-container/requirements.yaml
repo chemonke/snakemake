@@ -10,3 +10,5 @@ dependencies:
   - scipy
   - matplotlib
   - rdkit
+  - seaborn
+  - matplotlib

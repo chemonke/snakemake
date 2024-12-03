@@ -1,6 +1,0 @@
-host: nixos
-Building DAG of jobs...
-MissingInputException in rule all in file /home/cbo/msc/csa/snakemake/snakefile, line 6:
-Missing input files for rule all:
-    affected files:
-        lipinski_results_20241203_131245.csv
