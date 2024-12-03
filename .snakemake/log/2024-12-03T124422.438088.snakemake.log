@@ -14,27 +14,27 @@ total                 3
 Select jobs to execute...
 Execute 1 jobs...
 
-[Tue Dec  3 11:47:17 2024]
+[Tue Dec  3 12:44:22 2024]
 localrule run_surge:
-    input: surge_input.txt, surge_image.sentinel
+    input: surge_input.txt
     output: surge_output.smi
     jobid: 2
-    reason: Missing output files: surge_output.smi; Updated input files: surge_image.sentinel
-    resources: tmpdir=/tmp
+    reason: Missing output files: surge_output.smi
+    resources: tmpdir=/tmp/nix-shell-2724-0
 
-[Tue Dec  3 11:47:18 2024]
+[Tue Dec  3 12:44:22 2024]
 Error in rule run_surge:
     jobid: 2
-    input: surge_input.txt, surge_image.sentinel
+    input: surge_input.txt
     output: surge_output.smi
     shell:
         
-        docker run --rm -v $(pwd):/workspace -w /workspace surge         ./surge.sh "$(cat surge_input.txt)" surge_output.smi
+        docker run --rm -v $(pwd):/workspace -w /workspace surge ./surge.sh "$(cat surge_input.txt)" surge_output.smi
         
         (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
 
 Shutting down, this might take some time.
 Exiting because a job execution failed. Look above for error message
-Complete log: .snakemake/log/2024-12-03T114717.873369.snakemake.log
+Complete log: .snakemake/log/2024-12-03T124422.438088.snakemake.log
 WorkflowError:
 At least one job did not complete successfully.
