@@ -1,4 +1,4 @@
-name: snakemake-env
+name: pydev
 channels:
   - conda-forge
   - bioconda

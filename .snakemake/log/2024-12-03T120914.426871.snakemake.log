@@ -1,0 +1,61 @@
+host: nixos
+Building DAG of jobs...
+Using shell: /nix/store/126zbg10gjaxgs1kxz69h05ai95266cg-bash-interactive-5.2p37/bin/bash
+Provided cores: 22
+Rules claiming more threads will be scaled down.
+Job stats:
+job                  count
+-----------------  -------
+all                      1
+build_pydev_image        1
+check_lipinski           1
+run_surge                1
+total                    4
+
+Select jobs to execute...
+Execute 2 jobs...
+
+[Tue Dec  3 12:09:14 2024]
+localrule run_surge:
+    input: surge_input.txt, surge_image.sentinel
+    output: surge_output.smi
+    jobid: 2
+    reason: Missing output files: surge_output.smi
+    resources: tmpdir=/tmp/nix-shell-112370-0
+
+
+[Tue Dec  3 12:09:14 2024]
+localrule build_pydev_image:
+    output: pydev_image.sentinel
+    jobid: 4
+    reason: Missing output files: pydev_image.sentinel
+    resources: tmpdir=/tmp/nix-shell-112370-0
+
+[Tue Dec  3 12:09:14 2024]
+Error in rule run_surge:
+    jobid: 2
+    input: surge_input.txt, surge_image.sentinel
+    output: surge_output.smi
+    shell:
+        
+        docker run --rm -v $(pwd):/workspace -w /workspace surge         ./surge.sh "$(cat surge_input.txt)" surge_output.smi
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Terminating processes on user request, this might take some time.
+[Tue Dec  3 12:09:31 2024]
+Error in rule build_pydev_image:
+    jobid: 4
+    output: pydev_image.sentinel
+    shell:
+        
+        if ! docker images | grep -q 'pydev'; then
+            docker build -t pydev ./python-container
+        fi
+        touch pydev_image.sentinel
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Complete log: .snakemake/log/2024-12-03T120914.426871.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.
