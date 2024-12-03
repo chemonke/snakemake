@@ -1,0 +1,99 @@
+host: nixos
+Building DAG of jobs...
+Using shell: /nix/store/126zbg10gjaxgs1kxz69h05ai95266cg-bash-interactive-5.2p37/bin/bash
+Provided cores: 22
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count
+--------------  -------
+all                   1
+check_lipinski        1
+run_surge             1
+total                 3
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Dec  3 11:11:27 2024]
+localrule run_surge:
+    input: surge_input.txt
+    output: surge_output.smi
+    jobid: 2
+    reason: Missing output files: surge_output.smi
+    resources: tmpdir=/tmp/nix-shell-88791-0/nix-shell-89971-0
+
+[Tue Dec  3 11:11:28 2024]
+Finished job 2.
+1 of 3 steps (33%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Tue Dec  3 11:11:28 2024]
+localrule check_lipinski:
+    input: surge_output.smi
+    output: lipinski_results.csv
+    jobid: 1
+    reason: Missing output files: lipinski_results.csv; Input files updated by another job: surge_output.smi; Code has changed since last execution
+    resources: tmpdir=/tmp/nix-shell-88791-0/nix-shell-89971-0
+
+Traceback (most recent call last):
+
+  File "/nix/store/9kf7l68p15pjrlj6l0x21rrkhb1ihmym-snakemake-8.23.0/lib/python3.12/site-packages/snakemake/cli.py", line 2091, in args_to_api
+    dag_api.execute_workflow(
+
+  File "/nix/store/9kf7l68p15pjrlj6l0x21rrkhb1ihmym-snakemake-8.23.0/lib/python3.12/site-packages/snakemake/api.py", line 595, in execute_workflow
+    workflow.execute(
+
+  File "/nix/store/9kf7l68p15pjrlj6l0x21rrkhb1ihmym-snakemake-8.23.0/lib/python3.12/site-packages/snakemake/workflow.py", line 1264, in execute
+    raise e
+
+  File "/nix/store/9kf7l68p15pjrlj6l0x21rrkhb1ihmym-snakemake-8.23.0/lib/python3.12/site-packages/snakemake/workflow.py", line 1260, in execute
+    success = self.scheduler.schedule()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/nix/store/9kf7l68p15pjrlj6l0x21rrkhb1ihmym-snakemake-8.23.0/lib/python3.12/site-packages/snakemake/scheduler.py", line 193, in schedule
+    self._finish_jobs()
+
+  File "/nix/store/9kf7l68p15pjrlj6l0x21rrkhb1ihmym-snakemake-8.23.0/lib/python3.12/site-packages/snakemake/scheduler.py", line 389, in _finish_jobs
+    async_run(postprocess())
+
+  File "/nix/store/9kf7l68p15pjrlj6l0x21rrkhb1ihmym-snakemake-8.23.0/lib/python3.12/site-packages/snakemake/common/__init__.py", line 89, in async_run
+    return asyncio.run(coroutine)
+           ^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/nix/store/px2nj16i5gc3d4mnw5l1nclfdxhry61p-python3-3.12.7/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+
+  File "/nix/store/px2nj16i5gc3d4mnw5l1nclfdxhry61p-python3-3.12.7/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/nix/store/px2nj16i5gc3d4mnw5l1nclfdxhry61p-python3-3.12.7/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+
+  File "/nix/store/9kf7l68p15pjrlj6l0x21rrkhb1ihmym-snakemake-8.23.0/lib/python3.12/site-packages/snakemake/scheduler.py", line 338, in postprocess
+    await job.postprocess(
+
+  File "/nix/store/9kf7l68p15pjrlj6l0x21rrkhb1ihmym-snakemake-8.23.0/lib/python3.12/site-packages/snakemake/jobs.py", line 1137, in postprocess
+    await self.dag.check_and_touch_output(
+
+  File "/nix/store/9kf7l68p15pjrlj6l0x21rrkhb1ihmym-snakemake-8.23.0/lib/python3.12/site-packages/snakemake/dag.py", line 727, in check_and_touch_output
+    output_path.touch()
+
+  File "/nix/store/9kf7l68p15pjrlj6l0x21rrkhb1ihmym-snakemake-8.23.0/lib/python3.12/site-packages/snakemake/io.py", line 754, in touch
+    raise e
+
+  File "/nix/store/9kf7l68p15pjrlj6l0x21rrkhb1ihmym-snakemake-8.23.0/lib/python3.12/site-packages/snakemake/io.py", line 743, in touch
+    lutime(self.file, times)
+
+  File "/nix/store/9kf7l68p15pjrlj6l0x21rrkhb1ihmym-snakemake-8.23.0/lib/python3.12/site-packages/snakemake/io.py", line 68, in lutime
+    success = lutime_raw(file, times)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/nix/store/ggksqgivbxzcj66hqp0la9k6aribpjmf-python3.12-snakemake-interface-common-1.17.4/lib/python3.12/site-packages/snakemake_interface_common/utils.py", line 47, in lutime
+    os.utime(f, times, follow_symlinks=False)
+
+PermissionError: [Errno 13] Permission denied
+

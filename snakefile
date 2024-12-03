@@ -1,5 +1,3 @@
-# include container building?
-
 rule all:
     input:
         "lipinski_results.csv"  # Final target of the workflow
@@ -22,8 +20,8 @@ rule check_lipinski:
     output:
         "lipinski_results.csv"
     shell:
-        "python check_lipinski.py --input {input} --output {output}"
-
-# add synthone calculations
-
-# price checks?
+        """
+        docker run --rm --user $(id -u):$(id -g) -v $(pwd):/workspace -w /workspace snakemake-dev \
+        /opt/conda/envs/snakemake-env/bin/python check_lipinski.py \
+        --input {input} --output {output}
+        """
