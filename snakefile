@@ -103,10 +103,12 @@ rule validate_error_rates:
         f"output/validation_error_visualization_{timestamp}.png"
     shell:
         """
-        docker run --rm --user $(id -u):$(id -g) -v $(pwd):/workspace -w /workspace pydev \
+        docker run --rm --user $(id -u):$(id -g) -v $(pwd):/workspace -w /workspace \
+        -e MPLCONFIGDIR=/workspace/.config/matplotlib pydev \
         /opt/conda/envs/pydev/bin/python scripts/validation_error_rates.py \
         --input {input} --stats-output {output[0]} --plot-output {output[1]}
         """
+
 
 rule analyze_fragments:
     input:
