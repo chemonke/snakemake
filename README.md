@@ -10,3 +10,12 @@ How is this useful?
 Requirements:
 - Docker
 - Snakemake
+
+Usage:
+- Make sure you have Docker and Snakemake installed
+- Choose an input molecular formula in the surge_input.txt file
+- Run the workflow with $ snakemake
+- Outputs are stored in the output folder
+
+Problems:
+- Currently the surge.sh script does not catch edgecases of molecules with <\n permutations.
