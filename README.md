@@ -18,4 +18,4 @@ Usage:
 - Outputs are stored in the output folder
 
 Problems:
-- Currently the surge.sh script does not catch edgecases of molecules with \<\n permutations.
+- Currently the surge.sh script does not catch edgecases of molecules with \<n permutations.
