@@ -1,20 +1,18 @@
-import time
-
-
-# Generate a timestamp to append to outputs
-timestamp = time.strftime("%Y%m%d_%H%M%S")
+formulas = shell("""
+    docker run --rm --user $(id -u):$(id -g) -v $(pwd):/workspace -w /workspace pydev \
+    /opt/conda/envs/pydev/bin/python ./scripts/read_formulae.py
+""", read=True).strip().split("\n")
 
 rule all:
     input:
-        f"output/lipinski_results_with_fragments_{timestamp}.csv",
-        f"output/summary_statistics_{timestamp}.csv",
-        f"output/pairplot_{timestamp}.png",
-        f"output/validation_error_stats_{timestamp}.csv",
-        f"output/validation_error_visualization_{timestamp}.png",
-        f"output/fragment_analysis_{timestamp}.csv",
-        f"output/fragment_frequency_plot_{timestamp}.png",
-        f"output/molecules_{timestamp}.png"
-
+        expand("{formula}_lipinski_results_with_fragments.csv", formula=formulas),
+        expand("{formula}_summary_statistics.csv", formula=formulas),
+        expand("{formula}_pairplot.png", formula=formulas),
+        expand("{formula}_validation_error_stats.csv", formula=formulas),
+        expand("{formula}_validation_error_visualization.png", formula=formulas),
+        expand("{formula}_fragment_analysis.csv", formula=formulas),
+        expand("{formula}_fragment_frequency_plot.png", formula=formulas),
+        expand("{formula}_molecules.png", formula=formulas)
 
 rule build_pydev_image:
     output:
@@ -40,28 +38,22 @@ rule build_surge_image:
 
 rule run_surge:
     input:
-        "surge_input.txt",
         "sentinel/surge_image.sentinel"
     output:
-        "output/surge_output_{timestamp}.smi"
+        "{formula}_surge_output.smi"
     params:
-        timestamp=timestamp
-    run:
-        with open(input[0], 'r') as f:
-            input_string = f.read().strip()
-        shell(
-            './scripts/surge.sh "{input_string}" {output}'
-        )
-
+        formula="{formula}"
+    shell:
+        """
+        ./scripts/surge.sh "{params.formula}" {output}
+        """
 
 rule check_lipinski:
     input:
-        "output/surge_output_{timestamp}.smi",
+        "{formula}_surge_output.smi",
         "sentinel/pydev_image.sentinel"
     output:
-        "output/lipinski_results_{timestamp}.csv"
-    params:
-        timestamp=timestamp
+        "{formula}_lipinski_results.csv"
     shell:
         """
         docker run --rm --user $(id -u):$(id -g) -v $(pwd):/workspace -w /workspace pydev \
@@ -71,9 +63,9 @@ rule check_lipinski:
 
 rule add_fragments:
     input:
-        f"output/lipinski_results_{timestamp}.csv"
+        "{formula}_lipinski_results.csv"
     output:
-        f"output/lipinski_results_with_fragments_{timestamp}.csv"
+        "{formula}_lipinski_results_with_fragments.csv"
     shell:
         """
         docker run --rm --user $(id -u):$(id -g) -v $(pwd):/workspace -w /workspace pydev \
@@ -83,10 +75,10 @@ rule add_fragments:
 
 rule generate_summary_statistics:
     input:
-        f"output/lipinski_results_with_fragments_{timestamp}.csv"
+        "{formula}_lipinski_results_with_fragments.csv"
     output:
-        f"output/summary_statistics_{timestamp}.csv",
-        f"output/pairplot_{timestamp}.png"
+        "{formula}_summary_statistics.csv",
+        "{formula}_pairplot.png"
     shell:
         """
         docker run --rm --user $(id -u):$(id -g) -v $(pwd):/workspace -w /workspace pydev \
@@ -96,10 +88,10 @@ rule generate_summary_statistics:
 
 rule validate_error_rates:
     input:
-        f"output/lipinski_results_with_fragments_{timestamp}.csv"
+        "{formula}_lipinski_results_with_fragments.csv"
     output:
-        f"output/validation_error_stats_{timestamp}.csv",
-        f"output/validation_error_visualization_{timestamp}.png"
+        "{formula}_validation_error_stats.csv",
+        "{formula}_validation_error_visualization.png"
     shell:
         """
         docker run --rm --user $(id -u):$(id -g) -v $(pwd):/workspace -w /workspace \
@@ -108,13 +100,12 @@ rule validate_error_rates:
         --input {input} --stats-output {output[0]} --plot-output {output[1]}
         """
 
-
 rule analyze_fragments:
     input:
-        f"output/lipinski_results_with_fragments_{timestamp}.csv"
+        "{formula}_lipinski_results_with_fragments.csv"
     output:
-        f"output/fragment_analysis_{timestamp}.csv",
-        f"output/fragment_frequency_plot_{timestamp}.png"
+        "{formula}_fragment_analysis.csv",
+        "{formula}_fragment_frequency_plot.png"
     shell:
         """
         docker run --rm --user $(id -u):$(id -g) -v $(pwd):/workspace -w /workspace \
@@ -125,15 +116,12 @@ rule analyze_fragments:
 
 rule draw_molecules:
     input:
-        "output/lipinski_results_{timestamp}.csv"
+        "{formula}_lipinski_results.csv"
     output:
-        "output/molecules_{timestamp}.png"
+        "{formula}_molecules.png"
     shell:
         """
         docker run --rm --user $(id -u):$(id -g) -v $(pwd):/workspace -w /workspace pydev \
         /opt/conda/envs/pydev/bin/python scripts/draw_molecules.py \
         --csv {input} --output {output} --max-molecules 10
         """
-
-
-
