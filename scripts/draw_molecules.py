@@ -1,64 +1,57 @@
+import pandas as pd
+from PIL import Image, ImageDraw, ImageFont
 from rdkit import Chem
-from rdkit.Chem import Draw, Lipinski, Descriptors
-import os
+from rdkit.Chem import Draw
+import argparse
 
-def check_lipinski(smiles):
-    """Check if a molecule complies with Lipinski's Rule of Five."""
-    mol = Chem.MolFromSmiles(smiles)
-    if not mol:
-        return None, True
+def generate_images(csv_file, output_file, max_molecules=10):
+    """Generate a single image showing valid and invalid molecules from precomputed CSV."""
+    # Read the CSV file
+    data = pd.read_csv(csv_file)
 
-    hbd = Lipinski.NumHDonors(mol)
-    hba = Lipinski.NumHAcceptors(mol)
-    mw = Descriptors.ExactMolWt(mol)
-    logp = Descriptors.MolLogP(mol)
+    # Ensure necessary columns are present
+    if "SMILES" not in data.columns or "Valid" not in data.columns:
+        raise ValueError("CSV must contain 'SMILES' and 'Valid' columns.")
 
-    num_violations = sum([
-        hbd > 5,
-        hba > 10,
-        mw > 500,
-        logp > 5
-    ])
+    # Limit molecules to max_molecules per category
+    valid_mols = [Chem.MolFromSmiles(smiles) for smiles in data[data["Valid"] == True]["SMILES"][:max_molecules] if Chem.MolFromSmiles(smiles)]
+    invalid_mols = [Chem.MolFromSmiles(smiles) for smiles in data[data["Valid"] == False]["SMILES"][:max_molecules] if Chem.MolFromSmiles(smiles)]
 
-    return num_violations <= 1, mol  # True if valid, False if violates
+    # Define grid settings
+    sub_img_size = (200, 200)
+    grid_size = (2, 5)  # 2 rows, 5 columns (adjust if needed)
 
-def generate_images(input_file, valid_output, invalid_output):
-    """Generate images of valid and invalid molecules."""
-    valid_mols = []
-    invalid_mols = []
+    # Generate molecule images in grids
+    valid_img = Draw.MolsToGridImage(valid_mols, molsPerRow=grid_size[1], subImgSize=sub_img_size) if valid_mols else None
+    invalid_img = Draw.MolsToGridImage(invalid_mols, molsPerRow=grid_size[1], subImgSize=sub_img_size) if invalid_mols else None
 
-    # Ensure input file exists and is not empty
-    if not os.path.exists(input_file) or os.path.getsize(input_file) == 0:
-        raise FileNotFoundError(f"Input file '{input_file}' does not exist or is empty.")
+    # Combine into a single image
+    labels = ["Valid Molecules", "Invalid Molecules"]
+    images = [valid_img, invalid_img]
+    combined_height = (sub_img_size[1] * grid_size[0] + 50) * len(images)  # Include space for labels
+    combined_img = Image.new("RGB", (sub_img_size[0] * grid_size[1], combined_height), "white")
+    draw = ImageDraw.Draw(combined_img)
+    font = ImageFont.load_default()
 
-    # Read SMILES strings and categorize molecules
-    with open(input_file, 'r') as infile:
-        for line in infile:
-            smiles = line.strip()
-            is_valid, mol = check_lipinski(smiles)
-            if mol:
-                if is_valid and len(valid_mols) < 5:
-                    valid_mols.append(mol)
-                elif not is_valid and len(invalid_mols) < 5:
-                    invalid_mols.append(mol)
-            if len(valid_mols) >= 5 and len(invalid_mols) >= 5:
-                break
+    # Paste each grid into the combined image
+    y_offset = 0
+    for img, label in zip(images, labels):
+        if img:
+            combined_img.paste(img, (0, y_offset))
+        draw.text((10, y_offset + sub_img_size[1] * grid_size[0] + 10), label, fill="black", font=font)
+        y_offset += sub_img_size[1] * grid_size[0] + 50  # Move down for the next grid + label
 
-    # Save images to specified output files
-    if valid_mols:
-        Draw.MolsToImage(valid_mols).save(valid_output)
-    if invalid_mols:
-        Draw.MolsToImage(invalid_mols).save(invalid_output)
+    # Save the combined image
+    combined_img.save(output_file)
+
 
 if __name__ == "__main__":
-    import argparse
-
     # Set up argument parsing
-    parser = argparse.ArgumentParser(description="Draw images of molecules based on Lipinski's rule compliance.")
-    parser.add_argument("--input", required=True, help="Input file containing SMILES strings.")
-    parser.add_argument("--valid-output", required=True, help="Output file for valid molecules image.")
-    parser.add_argument("--invalid-output", required=True, help="Output file for invalid molecules image.")
+    parser = argparse.ArgumentParser(description="Draw images of molecules based on precomputed Lipinski results.")
+    parser.add_argument("--csv", required=True, help="Input CSV file containing SMILES strings and Lipinski compliance.")
+    parser.add_argument("--output", required=True, help="Output file for the combined molecules image.")
+    parser.add_argument("--max-molecules", type=int, default=10, help="Maximum number of molecules to display per category.")
     args = parser.parse_args()
 
     # Generate molecule images
-    generate_images(args.input, args.valid_output, args.invalid_output)
+    generate_images(args.csv, args.output, max_molecules=args.max_molecules)

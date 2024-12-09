@@ -1,5 +1,6 @@
 import time
 
+
 # Generate a timestamp to append to outputs
 timestamp = time.strftime("%Y%m%d_%H%M%S")
 
@@ -12,9 +13,7 @@ rule all:
         f"output/validation_error_visualization_{timestamp}.png",
         f"output/fragment_analysis_{timestamp}.csv",
         f"output/fragment_frequency_plot_{timestamp}.png",
-        f"output/valid_molecules_{timestamp}.png",
-        f"output/invalid_molecules_{timestamp}.png"
-        
+        f"output/molecules_{timestamp}.png"
 
 
 rule build_pydev_image:
@@ -126,14 +125,15 @@ rule analyze_fragments:
 
 rule draw_molecules:
     input:
-        "output/surge_output_{timestamp}.smi"
+        "output/lipinski_results_{timestamp}.csv"
     output:
-        "output/valid_molecules_{timestamp}.png",
-        "output/invalid_molecules_{timestamp}.png"
+        "output/molecules_{timestamp}.png"
     shell:
         """
         docker run --rm --user $(id -u):$(id -g) -v $(pwd):/workspace -w /workspace pydev \
         /opt/conda/envs/pydev/bin/python scripts/draw_molecules.py \
-        --input {input} --valid-output {output[0]} --invalid-output {output[1]}
+        --csv {input} --output {output} --max-molecules 10
         """
+
+
 

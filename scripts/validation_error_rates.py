@@ -13,10 +13,10 @@ def visualize_data(input_file, stats_output, plot_output):
         # Create the bar chart for Valid column
         plt.figure(figsize=(8, 6))
         valid_counts.plot(kind='bar', color=['skyblue', 'salmon'], edgecolor='k', alpha=0.7)
-        plt.title('Distribution of Valid Outputs', fontsize=14)
+        plt.title('Distribution of Outputs', fontsize=14)
         plt.xlabel('Valid', fontsize=12)
         plt.ylabel('Count', fontsize=12)
-        plt.xticks(ticks=[0, 1], labels=['False', 'True'], rotation=0)
+        plt.xticks(ticks=[0, 1], labels=['True', 'False'], rotation=0)
         plt.grid(axis='y', linestyle='--', alpha=0.7)
         plt.savefig(plot_output)
         plt.close()

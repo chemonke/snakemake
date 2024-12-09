@@ -18,4 +18,4 @@ Usage:
 - Outputs are stored in the output folder
 
 Problems:
-- Currently the surge.sh script does not catch edgecases of molecules with \<n permutations.
+- There are no checks for the validity of molecules (e.g. geminal di- and triols, over constrained rings, unstable tautomers)

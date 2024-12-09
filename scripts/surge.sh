@@ -10,19 +10,20 @@ mkfifo "$PIPE_NAME"
 
 SAMPLE_SIZE=10000
 
-# Run `surge` inside a `timeout` command to terminate after 5 minutes
+# Run surge inside a timeout command to terminate after 5 minutes
 timeout 5m docker run --rm -v "$(pwd)":/data --user $(id -u):$(id -g) surge:latest surge -S "$INPUT_STRING" > "$PIPE_NAME" &
 
 # Capture the PID of the background process
 DOCKER_PID=$!
 
-# Use `awk` to perform random sampling and limit output to n lines
-awk 'BEGIN {srand()} {if (rand() < 0.01) print $0}' < "$PIPE_NAME" | head -n $SAMPLE_SIZE > "$OUTPUT_FILE"
+# Use awk to perform random sampling and ensure exactly SAMPLE_SIZE lines
+awk -v sample_size=$SAMPLE_SIZE 'BEGIN {srand(); count=0} 
+    {if (rand() <= ((sample_size - count) / (NR - count))) {print $0; count++; if (count == sample_size) exit}}' < "$PIPE_NAME" > "$OUTPUT_FILE"
 
-# Wait for the `docker run` process to complete, but handle the timeout case
+# Wait for the docker run process to complete, but handle the timeout case
 wait $DOCKER_PID
 
-# Check if `timeout` terminated the process
+# Check if timeout terminated the process
 if [[ $? -eq 124 ]]; then
   echo "Process terminated after exceeding 5 minutes."
 fi
