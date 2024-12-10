@@ -1,0 +1,10 @@
+folders:
+  scripts: "scripts"
+  output: "output"
+  containers: "containers"
+  sentinel: "sentinel"
+
+files:
+  surge_input: "config/surge_input.txt"
+  pydev_sentinel: "sentinel/pydev_image.sentinel"
+  surge_sentinel: "sentinel/surge_image.sentinel"

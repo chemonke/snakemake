@@ -11,3 +11,4 @@ dependencies:
   - matplotlib
   - rdkit
   - seaborn
+  - pyyaml
