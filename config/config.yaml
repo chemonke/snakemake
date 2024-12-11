@@ -8,3 +8,10 @@ files:
   surge_input: "config/surge_input.txt"
   pydev_sentinel: "sentinel/pydev_image.sentinel"
   surge_sentinel: "sentinel/surge_image.sentinel"
+  sql_sentinel: "sentinel/sql_sentinel"
+  sql_running_sentinel: "sentinel/sql_running_sentinel"
+  network_sentinel: "sentinel/network_sentinel"
+
+sql:
+  root_password: "swoosh"
+  database: "leads"

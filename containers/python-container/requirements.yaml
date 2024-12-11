@@ -12,3 +12,4 @@ dependencies:
   - rdkit
   - seaborn
   - pyyaml
+  - pymysql
