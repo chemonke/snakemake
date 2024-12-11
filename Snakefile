@@ -9,9 +9,9 @@ sentinel = config["folders"]["sentinel"]
 
 
 # Include modularized rules
-include: "./rules/containers"
-include: "./rules/data_generation"
-include: "./rules/analytics"
+include: "./rules/containers.smk"
+include: "./rules/data_generation.smk"
+include: "./rules/analytics.smk"
 
 rule all:
     input:
