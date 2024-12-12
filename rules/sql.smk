@@ -50,6 +50,7 @@ rule insert_data_to_db:
         docker run --rm --user $(id -u):$(id -g) --network=my_network -v $(pwd):/workspace -w /workspace pydev \
         /opt/conda/envs/pydev/bin/python scripts/sql.py \
         --input {input[0]} \
+        --formula {wildcards.formula} \
         --user {params.user} \
         --password {params.password} \
         --host {params.host} \
