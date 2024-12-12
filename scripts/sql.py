@@ -32,6 +32,7 @@ create_formulae_table_query = """
 CREATE TABLE IF NOT EXISTS chemical_formulae (
     id INT AUTO_INCREMENT PRIMARY KEY,
     formula TEXT NOT NULL,
+    mw FLOAT DEFAULT NULL,
     description TEXT,
     UNIQUE KEY (formula(255)) -- Enforces uniqueness for chemical formulae
 );
@@ -43,7 +44,6 @@ CREATE TABLE IF NOT EXISTS lipinski_results (
     id INT AUTO_INCREMENT PRIMARY KEY,
     formula_id INT NOT NULL,
     smiles TEXT NOT NULL,
-    mw FLOAT,
     hba INT,
     hbd INT,
     logp FLOAT,
@@ -63,22 +63,6 @@ try:
     print("Table `lipinski_results` is ready.")
 except pymysql.MySQLError as e:
     print(f"Error creating tables: {e}")
-    cursor.close()
-    conn.close()
-    exit(1)
-
-# Insert the formula into `chemical_formulae`
-formula_query = """
-INSERT INTO chemical_formulae (formula, description)
-VALUES (%s, %s)
-ON DUPLICATE KEY UPDATE id=LAST_INSERT_ID(id);
-"""
-try:
-    cursor.execute(formula_query, (args.formula, "Chemical formula from surge_input.txt"))
-    formula_id = cursor.lastrowid
-    print(f"Chemical formula `{args.formula}` recorded with ID: {formula_id}")
-except pymysql.MySQLError as e:
-    print(f"Error recording chemical formula: {e}")
     cursor.close()
     conn.close()
     exit(1)
@@ -103,7 +87,27 @@ except Exception as e:
     conn.close()
     exit(1)
 
-# Convert 'Fragments' column to valid JSON
+# Calculate molecular weight (MW) as the average MW from the CSV
+computed_mw = df["MW"].mean() if "MW" in df.columns else None
+
+# Insert the formula into `chemical_formulae` with MW
+formula_query = """
+INSERT INTO chemical_formulae (formula, mw, description)
+VALUES (%s, %s, %s)
+ON DUPLICATE KEY UPDATE id=LAST_INSERT_ID(id), mw=VALUES(mw);
+"""
+try:
+    cursor.execute(formula_query, (args.formula, computed_mw, "Chemical formula from surge_input.txt"))
+    formula_id = cursor.lastrowid
+    print(f"Chemical formula `{args.formula}` recorded with ID: {formula_id} and MW: {computed_mw}")
+except pymysql.MySQLError as e:
+    print(f"Error recording chemical formula: {e}")
+    cursor.close()
+    conn.close()
+    exit(1)
+
+# Convert 'Fragments' column to vaFilter out invalid structures with Chem.SanitizeMol.
+lid JSON
 def to_valid_json(fragment):
     try:
         # Convert string to Python list and then to JSON string
@@ -117,8 +121,8 @@ df["Fragments"] = df["Fragments"].apply(to_valid_json)
 # Insert data into `lipinski_results` linked to the formula_id
 for _, row in df.iterrows():
     insert_query = """
-    INSERT INTO lipinski_results (formula_id, smiles, mw, hba, hbd, logp, valid, error, fragments)
-    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+    INSERT INTO lipinski_results (formula_id, smiles, hba, hbd, logp, valid, error, fragments)
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
     """
     try:
         cursor.execute(
@@ -126,7 +130,6 @@ for _, row in df.iterrows():
             (
                 formula_id,
                 row['SMILES'],
-                row['MW'],
                 row['HBA'],
                 row['HBD'],
                 row['LogP'],
