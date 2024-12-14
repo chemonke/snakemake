@@ -107,7 +107,7 @@ except pymysql.MySQLError as e:
     exit(1)
 
 # Convert 'Fragments' column to vaFilter out invalid structures with Chem.SanitizeMol.
-lid JSON
+#lid JSON
 def to_valid_json(fragment):
     try:
         # Convert string to Python list and then to JSON string
