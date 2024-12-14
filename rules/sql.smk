@@ -35,25 +35,33 @@ rule run_sql_container:
 
 rule insert_data_to_db:
     input:
-        f"{output}/{{formula}}_lipinski_results_with_fragments.csv",  # Input CSV file
-        config["files"]["pydev_sentinel"],                             # Ensure pydev container is built
-        config["files"]["sql_running_sentinel"]                       # Ensure MariaDB container is running
+        validation_stats=f"{output}/{{formula}}_validation_error_stats.csv",
+        validation_plot=f"{output}/{{formula}}_validation_error_visualization.png",
+        fragment_analysis=f"{output}/{{formula}}_fragment_analysis.csv",
+        fragment_plot=f"{output}/{{formula}}_fragment_frequency_plot.png",
+        molecules=f"{output}/{{formula}}_molecules.png",
+        summary_stats=f"{output}/{{formula}}_summary_statistics.csv",
+        pairplot=f"{output}/{{formula}}_pairplot.png",
+        lipinski_results=f"{output}/{{formula}}_lipinski_results_with_fragments.csv",
+        sql_sentinel=config["files"]["sql_running_sentinel"],
+        pydev_sentinel=config["files"]["pydev_sentinel"]
     output:
         f"{sentinel}/{{formula}}_data_inserted.flag"
     params:
-        user="root",
-        password=config["sql"]["root_password"],
-        host="mariadb",  # Container name
-        database=config["sql"]["database"]
+        user="root",  # Add your database user here
+        password=config["sql"]["root_password"],  # Reference from config.yaml
+        host="mariadb",  # Docker container hostname
+        database=config["sql"]["database"]  # Reference from config.yaml
     shell:
         """
-        docker run --rm --user $(id -u):$(id -g) --network=my_network -v $(pwd):/workspace -w /workspace pydev \
-        /opt/conda/envs/pydev/bin/python scripts/sql.py \
-        --input {input[0]} \
-        --formula {wildcards.formula} \
-        --user {params.user} \
-        --password {params.password} \
-        --host {params.host} \
-        --database {params.database}
+        docker run --rm --user $(id -u):$(id -g) --network=my_network \
+            -v $(pwd):/workspace -w /workspace pydev \
+            /opt/conda/envs/pydev/bin/python scripts/sql.py \
+            --input {input.lipinski_results} \
+            --formula {wildcards.formula} \
+            --user {params.user} \
+            --password {params.password} \
+            --host {params.host} \
+            --database {params.database}
         touch {output}
         """

@@ -24,7 +24,7 @@ def generate_visualizations(input_file, plot_output):
     numerical_columns = ['HBA', 'HBD', 'LogP']
 
     # Create a pairplot for numerical features
-    sns.pairplot(data, vars=numerical_columns, diag_kind="kde", hue="Valid")
+    sns.pairplot(data, vars=numerical_columns, diag_kind="kde", hue="lipinski_valid")
 
     # Save the visualization to a PNG file
     plt.savefig(plot_output)

@@ -77,3 +77,15 @@ docker run --rm --user $(id -u):$(id -g) -v $(pwd):/workspace -w /workspace pyde
 --stats-output {output[0]} \
 --plot-output {output[1]}
         """
+
+rule check_smiles_chemval:
+    input:
+        f"{output}/{{formula}}_lipinski_results.csv"
+    output:
+        f"{output}/{{formula}}_lipinski_results_chemval.csv"
+    shell:
+        """
+docker run --rm --user $(id -u):$(id -g) -v $(pwd):/workspace -w /workspace pydev \
+/opt/conda/envs/pydev/bin/python {scripts}/check_smiles_chemval.py \
+--input {input} --output {output}
+        """

@@ -27,14 +27,14 @@ except pymysql.MySQLError as e:
     print(f"Error connecting to the database: {e}")
     exit(1)
 
-# Create parent table for chemical formulae
+# Create parent table for chemical formulae (without `description`)
 create_formulae_table_query = """
 CREATE TABLE IF NOT EXISTS chemical_formulae (
     id INT AUTO_INCREMENT PRIMARY KEY,
     formula TEXT NOT NULL,
     mw FLOAT DEFAULT NULL,
-    description TEXT,
-    UNIQUE KEY (formula(255)) -- Enforces uniqueness for chemical formulae
+    lipinski_valid_percent FLOAT DEFAULT NULL,
+    UNIQUE KEY (formula(255))
 );
 """
 
@@ -47,11 +47,11 @@ CREATE TABLE IF NOT EXISTS lipinski_results (
     hba INT,
     hbd INT,
     logp FLOAT,
-    valid BOOLEAN,
+    lipinski_valid BOOLEAN,
     error BOOLEAN,
     fragments JSON,
     FOREIGN KEY (formula_id) REFERENCES chemical_formulae(id) ON DELETE CASCADE,
-    UNIQUE KEY (formula_id, smiles(255)) -- Ensures unique SMILES per chemical formula
+    UNIQUE KEY (formula_id, smiles(255))
 );
 """
 
@@ -67,7 +67,7 @@ except pymysql.MySQLError as e:
     conn.close()
     exit(1)
 
-# Load the CSV into a DataFrame
+# Load the main CSV into a DataFrame
 try:
     df = pd.read_csv(args.input)
     print(f"Successfully loaded data from {args.input}.")
@@ -81,23 +81,18 @@ except pd.errors.ParserError as e:
     cursor.close()
     conn.close()
     exit(1)
-except Exception as e:
-    print(f"Unexpected error loading CSV: {e}")
-    cursor.close()
-    conn.close()
-    exit(1)
 
 # Calculate molecular weight (MW) as the average MW from the CSV
 computed_mw = df["MW"].mean() if "MW" in df.columns else None
 
 # Insert the formula into `chemical_formulae` with MW
 formula_query = """
-INSERT INTO chemical_formulae (formula, mw, description)
-VALUES (%s, %s, %s)
+INSERT INTO chemical_formulae (formula, mw)
+VALUES (%s, %s)
 ON DUPLICATE KEY UPDATE id=LAST_INSERT_ID(id), mw=VALUES(mw);
 """
 try:
-    cursor.execute(formula_query, (args.formula, computed_mw, "Chemical formula from surge_input.txt"))
+    cursor.execute(formula_query, (args.formula, computed_mw))
     formula_id = cursor.lastrowid
     print(f"Chemical formula `{args.formula}` recorded with ID: {formula_id} and MW: {computed_mw}")
 except pymysql.MySQLError as e:
@@ -106,14 +101,40 @@ except pymysql.MySQLError as e:
     conn.close()
     exit(1)
 
-# Convert 'Fragments' column to vaFilter out invalid structures with Chem.SanitizeMol.
-#lid JSON
+# Load the validation percentage from the stats CSV
+stats_file = f"output/{args.formula}_validation_error_stats.csv"
+try:
+    stats_df = pd.read_csv(stats_file)
+    validation_percentage = stats_df["validation_percentage"].iloc[0]
+    print(f"Loaded validation percentage for `{args.formula}`: {validation_percentage}%")
+except FileNotFoundError:
+    print(f"Validation stats file not found: {stats_file}")
+    cursor.close()
+    conn.close()
+    exit(1)
+except KeyError as e:
+    print(f"Invalid file format, missing key: {e}")
+    cursor.close()
+    conn.close()
+    exit(1)
+
+# Update the `lipinski_valid_percent` column for the formula
+update_percentage_query = """
+UPDATE chemical_formulae 
+SET lipinski_valid_percent = %s 
+WHERE id = %s;
+"""
+try:
+    cursor.execute(update_percentage_query, (validation_percentage, formula_id))
+    print(f"Updated `lipinski_valid_percent` for `{args.formula}` to {validation_percentage}%.")
+except pymysql.MySQLError as e:
+    print(f"Error updating lipinski_valid_percent: {e}")
+
+# Convert 'Fragments' column to valid JSON
 def to_valid_json(fragment):
     try:
-        # Convert string to Python list and then to JSON string
         return json.dumps(eval(fragment))
     except (SyntaxError, TypeError, NameError):
-        # Handle invalid formats gracefully
         return json.dumps([])
 
 df["Fragments"] = df["Fragments"].apply(to_valid_json)
@@ -121,7 +142,7 @@ df["Fragments"] = df["Fragments"].apply(to_valid_json)
 # Insert data into `lipinski_results` linked to the formula_id
 for _, row in df.iterrows():
     insert_query = """
-    INSERT INTO lipinski_results (formula_id, smiles, hba, hbd, logp, valid, error, fragments)
+    INSERT INTO lipinski_results (formula_id, smiles, hba, hbd, logp, lipinski_valid, error, fragments)
     VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
     """
     try:
@@ -133,7 +154,7 @@ for _, row in df.iterrows():
                 row['HBA'],
                 row['HBD'],
                 row['LogP'],
-                row['Valid'],
+                row['lipinski_valid'],
                 row['Error'],
                 row['Fragments'],
             )

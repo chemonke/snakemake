@@ -28,7 +28,7 @@ def check_lipinski(smiles):
         "HBA": hba,
         "HBD": hbd,
         "LogP": logp,
-        "Valid": num_violations <= 1,  # Valid if at most 1 violation
+        "lipinski_valid": num_violations <= 1,  # Valid if at most 1 violation
     }, False  # No error
 
 
@@ -56,7 +56,7 @@ def process_surge_output(input_file, output_file):
                 })
 
     # Explicitly set the desired column order
-    fieldnames = ["SMILES", "MW", "HBA", "HBD", "LogP", "Valid", "Error"]
+    fieldnames = ["SMILES", "MW", "HBA", "HBD", "LogP", "lipinski_valid", "Error"]
 
     with open(output_file, 'w', newline='') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)

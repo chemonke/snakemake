@@ -1,3 +1,2 @@
-Valid,Count
-True,8663
-False,1337
+valid,invalid,validation_percentage
+0,10000,0.0

@@ -10,12 +10,12 @@ def generate_images(csv_file, output_file, max_molecules=10):
     data = pd.read_csv(csv_file)
 
     # Ensure necessary columns are present
-    if "SMILES" not in data.columns or "Valid" not in data.columns:
+    if "SMILES" not in data.columns or "lipinski_valid" not in data.columns:
         raise ValueError("CSV must contain 'SMILES' and 'Valid' columns.")
 
     # Limit molecules to max_molecules per category
-    valid_mols = [Chem.MolFromSmiles(smiles) for smiles in data[data["Valid"] == True]["SMILES"][:max_molecules] if Chem.MolFromSmiles(smiles)]
-    invalid_mols = [Chem.MolFromSmiles(smiles) for smiles in data[data["Valid"] == False]["SMILES"][:max_molecules] if Chem.MolFromSmiles(smiles)]
+    valid_mols = [Chem.MolFromSmiles(smiles) for smiles in data[data["lipinski_valid"] == True]["SMILES"][:max_molecules] if Chem.MolFromSmiles(smiles)]
+    invalid_mols = [Chem.MolFromSmiles(smiles) for smiles in data[data["lipinski_valid"] == False]["SMILES"][:max_molecules] if Chem.MolFromSmiles(smiles)]
 
     # Define grid settings
     sub_img_size = (200, 200)
