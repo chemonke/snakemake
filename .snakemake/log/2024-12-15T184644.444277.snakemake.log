@@ -1,0 +1,304 @@
+host: nixos
+Building DAG of jobs...
+Using shell: /nix/store/126zbg10gjaxgs1kxz69h05ai95266cg-bash-interactive-5.2p37/bin/bash
+Provided cores: 22
+Rules claiming more threads will be scaled down.
+Job stats:
+job                            count
+---------------------------  -------
+all                                1
+build_pydev_image                  1
+build_sql_image                    1
+build_surge_image                  1
+create_database_schema             1
+create_docker_network              1
+draw_molecules                     2
+fragment_analysis                  2
+generate_summary_statistics        2
+insert_data_to_db                  2
+process_csv                        2
+run_sql_container                  1
+run_surge                          2
+validation_error_analysis          2
+total                             21
+
+Select jobs to execute...
+Execute 4 jobs...
+
+[Sun Dec 15 18:46:44 2024]
+localrule build_sql_image:
+    output: sentinel/sql_sentinel
+    jobid: 2
+    reason: Missing output files: sentinel/sql_sentinel
+    resources: tmpdir=/tmp/nix-shell-2920-0
+
+
+[Sun Dec 15 18:46:44 2024]
+localrule build_surge_image:
+    output: sentinel/surge_image.sentinel
+    jobid: 7
+    reason: Missing output files: sentinel/surge_image.sentinel
+    resources: tmpdir=/tmp/nix-shell-2920-0
+
+
+[Sun Dec 15 18:46:44 2024]
+localrule create_docker_network:
+    output: sentinel/network_sentinel
+    jobid: 1
+    reason: Missing output files: sentinel/network_sentinel
+    resources: tmpdir=/tmp/nix-shell-2920-0
+
+
+[Sun Dec 15 18:46:44 2024]
+localrule build_pydev_image:
+    output: sentinel/pydev_image.sentinel
+    jobid: 3
+    reason: Missing output files: sentinel/pydev_image.sentinel
+    resources: tmpdir=/tmp/nix-shell-2920-0
+
+[Sun Dec 15 18:46:44 2024]
+Finished job 7.
+1 of 21 steps (5%) done
+[Sun Dec 15 18:46:44 2024]
+Finished job 3.
+2 of 21 steps (10%) done
+[Sun Dec 15 18:46:44 2024]
+Finished job 2.
+3 of 21 steps (14%) done
+[Sun Dec 15 18:46:44 2024]
+Finished job 1.
+4 of 21 steps (19%) done
+Select jobs to execute...
+Execute 3 jobs...
+
+[Sun Dec 15 18:46:44 2024]
+localrule run_surge:
+    input: sentinel/surge_image.sentinel, sentinel/pydev_image.sentinel
+    output: output/C4H8O3_surge_output.smi
+    jobid: 6
+    reason: Missing output files: output/C4H8O3_surge_output.smi; Input files updated by another job: sentinel/pydev_image.sentinel, sentinel/surge_image.sentinel
+    wildcards: formula=C4H8O3
+    resources: tmpdir=/tmp/nix-shell-2920-0
+
+
+[Sun Dec 15 18:46:44 2024]
+localrule run_surge:
+    input: sentinel/surge_image.sentinel, sentinel/pydev_image.sentinel
+    output: output/C4H10_surge_output.smi
+    jobid: 8
+    reason: Missing output files: output/C4H10_surge_output.smi; Input files updated by another job: sentinel/pydev_image.sentinel, sentinel/surge_image.sentinel
+    wildcards: formula=C4H10
+    resources: tmpdir=/tmp/nix-shell-2920-0
+
+
+[Sun Dec 15 18:46:44 2024]
+localrule run_sql_container:
+    input: sentinel/sql_sentinel, sentinel/network_sentinel
+    output: sentinel/sql_running_sentinel
+    jobid: 5
+    reason: Missing output files: sentinel/sql_running_sentinel; Input files updated by another job: sentinel/sql_sentinel, sentinel/network_sentinel
+    resources: tmpdir=/tmp/nix-shell-2920-0
+
+[Sun Dec 15 18:46:44 2024]
+Finished job 6.
+5 of 21 steps (24%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sun Dec 15 18:46:44 2024]
+localrule process_csv:
+    input: output/C4H8O3_surge_output.smi
+    output: output/C4H8O3_results.csv
+    jobid: 9
+    reason: Missing output files: output/C4H8O3_results.csv; Input files updated by another job: output/C4H8O3_surge_output.smi
+    wildcards: formula=C4H8O3
+    resources: tmpdir=/tmp/nix-shell-2920-0
+
+[Sun Dec 15 18:46:44 2024]
+Finished job 8.
+6 of 21 steps (29%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sun Dec 15 18:46:44 2024]
+localrule process_csv:
+    input: output/C4H10_surge_output.smi
+    output: output/C4H10_results.csv
+    jobid: 10
+    reason: Missing output files: output/C4H10_results.csv; Input files updated by another job: output/C4H10_surge_output.smi
+    wildcards: formula=C4H10
+    resources: tmpdir=/tmp/nix-shell-2920-0
+
+[Sun Dec 15 18:46:45 2024]
+Finished job 10.
+7 of 21 steps (33%) done
+Select jobs to execute...
+Execute 4 jobs...
+
+[Sun Dec 15 18:46:45 2024]
+localrule validation_error_analysis:
+    input: output/C4H10_results.csv
+    output: output/C4H10_validation_error_stats.csv, output/C4H10_validation_error_visualization.png
+    jobid: 14
+    reason: Missing output files: output/C4H10_validation_error_stats.csv, output/C4H10_validation_error_visualization.png; Input files updated by another job: output/C4H10_results.csv
+    wildcards: formula=C4H10
+    resources: tmpdir=/tmp/nix-shell-2920-0
+
+
+[Sun Dec 15 18:46:45 2024]
+localrule draw_molecules:
+    input: output/C4H10_results.csv
+    output: output/C4H10_molecules.png
+    jobid: 18
+    reason: Missing output files: output/C4H10_molecules.png; Input files updated by another job: output/C4H10_results.csv
+    wildcards: formula=C4H10
+    resources: tmpdir=/tmp/nix-shell-2920-0
+
+
+[Sun Dec 15 18:46:45 2024]
+localrule fragment_analysis:
+    input: output/C4H10_results.csv
+    output: output/C4H10_fragment_analysis.csv, output/C4H10_fragment_frequency_plot.png
+    jobid: 16
+    reason: Missing output files: output/C4H10_fragment_frequency_plot.png, output/C4H10_fragment_analysis.csv; Input files updated by another job: output/C4H10_results.csv
+    wildcards: formula=C4H10
+    resources: tmpdir=/tmp/nix-shell-2920-0
+
+
+[Sun Dec 15 18:46:45 2024]
+localrule generate_summary_statistics:
+    input: output/C4H10_results.csv
+    output: output/C4H10_summary_statistics.csv, output/C4H10_pairplot.png
+    jobid: 12
+    reason: Missing output files: output/C4H10_summary_statistics.csv, output/C4H10_pairplot.png; Input files updated by another job: output/C4H10_results.csv
+    wildcards: formula=C4H10
+    resources: tmpdir=/tmp/nix-shell-2920-0
+
+[Sun Dec 15 18:46:46 2024]
+Finished job 9.
+8 of 21 steps (38%) done
+Select jobs to execute...
+Execute 4 jobs...
+
+[Sun Dec 15 18:46:46 2024]
+localrule generate_summary_statistics:
+    input: output/C4H8O3_results.csv
+    output: output/C4H8O3_summary_statistics.csv, output/C4H8O3_pairplot.png
+    jobid: 11
+    reason: Missing output files: output/C4H8O3_pairplot.png, output/C4H8O3_summary_statistics.csv; Input files updated by another job: output/C4H8O3_results.csv
+    wildcards: formula=C4H8O3
+    resources: tmpdir=/tmp/nix-shell-2920-0
+
+
+[Sun Dec 15 18:46:46 2024]
+localrule draw_molecules:
+    input: output/C4H8O3_results.csv
+    output: output/C4H8O3_molecules.png
+    jobid: 17
+    reason: Missing output files: output/C4H8O3_molecules.png; Input files updated by another job: output/C4H8O3_results.csv
+    wildcards: formula=C4H8O3
+    resources: tmpdir=/tmp/nix-shell-2920-0
+
+
+[Sun Dec 15 18:46:46 2024]
+localrule validation_error_analysis:
+    input: output/C4H8O3_results.csv
+    output: output/C4H8O3_validation_error_stats.csv, output/C4H8O3_validation_error_visualization.png
+    jobid: 13
+    reason: Missing output files: output/C4H8O3_validation_error_visualization.png, output/C4H8O3_validation_error_stats.csv; Input files updated by another job: output/C4H8O3_results.csv
+    wildcards: formula=C4H8O3
+    resources: tmpdir=/tmp/nix-shell-2920-0
+
+
+[Sun Dec 15 18:46:46 2024]
+localrule fragment_analysis:
+    input: output/C4H8O3_results.csv
+    output: output/C4H8O3_fragment_analysis.csv, output/C4H8O3_fragment_frequency_plot.png
+    jobid: 15
+    reason: Missing output files: output/C4H8O3_fragment_analysis.csv, output/C4H8O3_fragment_frequency_plot.png; Input files updated by another job: output/C4H8O3_results.csv
+    wildcards: formula=C4H8O3
+    resources: tmpdir=/tmp/nix-shell-2920-0
+
+[Sun Dec 15 18:46:46 2024]
+Finished job 16.
+9 of 21 steps (43%) done
+[Sun Dec 15 18:46:46 2024]
+Finished job 18.
+10 of 21 steps (48%) done
+[Sun Dec 15 18:46:47 2024]
+Finished job 15.
+11 of 21 steps (52%) done
+[Sun Dec 15 18:46:47 2024]
+Finished job 17.
+12 of 21 steps (57%) done
+[Sun Dec 15 18:46:47 2024]
+Finished job 14.
+13 of 21 steps (62%) done
+[Sun Dec 15 18:46:47 2024]
+Finished job 13.
+14 of 21 steps (67%) done
+[Sun Dec 15 18:46:48 2024]
+Finished job 12.
+15 of 21 steps (71%) done
+[Sun Dec 15 18:46:48 2024]
+Finished job 11.
+16 of 21 steps (76%) done
+[Sun Dec 15 18:46:51 2024]
+Finished job 5.
+17 of 21 steps (81%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sun Dec 15 18:46:51 2024]
+localrule create_database_schema:
+    input: sentinel/sql_running_sentinel, sentinel/pydev_image.sentinel
+    output: sentinel/schema_created.sentinel
+    jobid: 4
+    reason: Missing output files: sentinel/schema_created.sentinel; Input files updated by another job: sentinel/sql_running_sentinel, sentinel/pydev_image.sentinel
+    resources: tmpdir=/tmp/nix-shell-2920-0
+
+[Sun Dec 15 18:46:51 2024]
+Finished job 4.
+18 of 21 steps (86%) done
+Select jobs to execute...
+Execute 2 jobs...
+
+[Sun Dec 15 18:46:51 2024]
+localrule insert_data_to_db:
+    input: output/C4H10_validation_error_stats.csv, output/C4H10_results.csv, sentinel/sql_running_sentinel, sentinel/schema_created.sentinel, sentinel/pydev_image.sentinel
+    output: sentinel/C4H10_data_inserted.flag
+    jobid: 20
+    reason: Missing output files: sentinel/C4H10_data_inserted.flag; Input files updated by another job: sentinel/schema_created.sentinel, sentinel/pydev_image.sentinel, sentinel/sql_running_sentinel, output/C4H10_validation_error_stats.csv, output/C4H10_results.csv
+    wildcards: formula=C4H10
+    resources: tmpdir=/tmp/nix-shell-2920-0
+
+
+[Sun Dec 15 18:46:51 2024]
+localrule insert_data_to_db:
+    input: output/C4H8O3_validation_error_stats.csv, output/C4H8O3_results.csv, sentinel/sql_running_sentinel, sentinel/schema_created.sentinel, sentinel/pydev_image.sentinel
+    output: sentinel/C4H8O3_data_inserted.flag
+    jobid: 19
+    reason: Missing output files: sentinel/C4H8O3_data_inserted.flag; Input files updated by another job: sentinel/schema_created.sentinel, sentinel/pydev_image.sentinel, output/C4H8O3_results.csv, sentinel/sql_running_sentinel, output/C4H8O3_validation_error_stats.csv
+    wildcards: formula=C4H8O3
+    resources: tmpdir=/tmp/nix-shell-2920-0
+
+[Sun Dec 15 18:46:52 2024]
+Finished job 20.
+19 of 21 steps (90%) done
+[Sun Dec 15 18:46:52 2024]
+Finished job 19.
+20 of 21 steps (95%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sun Dec 15 18:46:52 2024]
+localrule all:
+    input: sentinel/network_sentinel, sentinel/sql_sentinel, sentinel/pydev_image.sentinel, sentinel/schema_created.sentinel, output/C4H8O3_surge_output.smi, output/C4H10_surge_output.smi, output/C4H8O3_results.csv, output/C4H10_results.csv, output/C4H8O3_summary_statistics.csv, output/C4H10_summary_statistics.csv, output/C4H8O3_pairplot.png, output/C4H10_pairplot.png, output/C4H8O3_validation_error_stats.csv, output/C4H10_validation_error_stats.csv, output/C4H8O3_validation_error_visualization.png, output/C4H10_validation_error_visualization.png, output/C4H8O3_fragment_analysis.csv, output/C4H10_fragment_analysis.csv, output/C4H8O3_fragment_frequency_plot.png, output/C4H10_fragment_frequency_plot.png, output/C4H8O3_molecules.png, output/C4H10_molecules.png, sentinel/C4H8O3_data_inserted.flag, sentinel/C4H10_data_inserted.flag
+    jobid: 0
+    reason: Input files updated by another job: output/C4H8O3_pairplot.png, output/C4H8O3_molecules.png, output/C4H10_results.csv, sentinel/pydev_image.sentinel, sentinel/C4H8O3_data_inserted.flag, sentinel/network_sentinel, output/C4H8O3_summary_statistics.csv, output/C4H10_summary_statistics.csv, output/C4H8O3_fragment_analysis.csv, output/C4H10_molecules.png, output/C4H10_fragment_frequency_plot.png, output/C4H10_validation_error_visualization.png, sentinel/schema_created.sentinel, output/C4H10_pairplot.png, output/C4H8O3_surge_output.smi, output/C4H10_surge_output.smi, output/C4H10_fragment_analysis.csv, output/C4H8O3_fragment_frequency_plot.png, output/C4H8O3_results.csv, output/C4H8O3_validation_error_visualization.png, sentinel/C4H10_data_inserted.flag, sentinel/sql_sentinel, output/C4H10_validation_error_stats.csv, output/C4H8O3_validation_error_stats.csv
+    resources: tmpdir=/tmp/nix-shell-2920-0
+
+[Sun Dec 15 18:46:52 2024]
+Finished job 0.
+21 of 21 steps (100%) done
+Complete log: .snakemake/log/2024-12-15T184644.444277.snakemake.log

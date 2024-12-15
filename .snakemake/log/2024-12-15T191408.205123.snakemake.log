@@ -1,0 +1,24 @@
+host: nixos
+Building DAG of jobs...
+Using shell: /nix/store/126zbg10gjaxgs1kxz69h05ai95266cg-bash-interactive-5.2p37/bin/bash
+Provided cores: 22
+Rules claiming more threads will be scaled down.
+Job stats:
+job      count
+-----  -------
+app          1
+total        1
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sun Dec 15 19:14:08 2024]
+localrule app:
+    jobid: 0
+    reason: Rules with neither input nor output files are always executed.
+    resources: tmpdir=/tmp/nix-shell-2920-0
+
+Terminating processes on user request, this might take some time.
+Complete log: .snakemake/log/2024-12-15T191408.205123.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

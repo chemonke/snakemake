@@ -1,0 +1,24 @@
+host: nixos
+Building DAG of jobs...
+Using shell: /nix/store/126zbg10gjaxgs1kxz69h05ai95266cg-bash-interactive-5.2p37/bin/bash
+Provided cores: 22
+Rules claiming more threads will be scaled down.
+Job stats:
+job      count
+-----  -------
+clean        1
+total        1
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Sun Dec 15 19:29:52 2024]
+localrule clean:
+    jobid: 0
+    reason: Rules with neither input nor output files are always executed.
+    resources: tmpdir=/tmp/nix-shell-2920-0
+
+[Sun Dec 15 19:29:52 2024]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: .snakemake/log/2024-12-15T192952.088922.snakemake.log
