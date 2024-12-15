@@ -11,7 +11,10 @@ files:
   sql_sentinel: "sentinel/sql_sentinel"
   sql_running_sentinel: "sentinel/sql_running_sentinel"
   network_sentinel: "sentinel/network_sentinel"
+  schema_created_sentinel: "sentinel/schema_created.sentinel"
 
 sql:
   root_password: "swoosh"
   database: "leads"
+
+debug: True  # Set to true during development to enable cleanup

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Status</title>
+    <style>
+        .status {
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+        .running {
+            color: green;
+        }
+        .stopped {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>SQL Database Status</h1>
+    <div class="status">
+        {% if db_status %}
+            <span class="running">✅ Running</span>
+        {% else %}
+            <span class="stopped">❌ Not Running</span>
+        {% endif %}
+    </div>
+</body>
+</html>

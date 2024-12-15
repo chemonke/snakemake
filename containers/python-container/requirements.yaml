@@ -13,3 +13,4 @@ dependencies:
   - seaborn
   - pyyaml
   - pymysql
+  - flask

@@ -7,12 +7,13 @@ output = config["folders"]["output"]
 containers = config["folders"]["containers"]
 sentinel = config["folders"]["sentinel"]
 
-
 # Include modularized rules
 include: "./rules/containers.smk"
 include: "./rules/data_generation.smk"
 include: "./rules/analytics.smk"
 include: "./rules/sql.smk"
+include: "./rules/debug.smk"
+include: "./rules/app.smk"
 
 rule all:
     input:
@@ -20,6 +21,9 @@ rule all:
         config["files"]["network_sentinel"],
         config["files"]["sql_sentinel"],
         config["files"]["pydev_sentinel"],
+
+        # Database schema must be created
+        config["files"]["schema_created_sentinel"],  # Added this to ensure schema creation
 
         # Surge processing outputs
         expand(f"{output}/{{formula}}_surge_output.smi", formula=lambda wildcards: get_formulas()),
@@ -43,16 +47,13 @@ rule all:
         expand(f"{output}/{{formula}}_molecules.png", formula=lambda wildcards: get_formulas()),
 
         # SQL insertion outputs
-        expand(f"{sentinel}/{{formula}}_data_inserted.flag", formula=lambda wildcards: get_formulas())
-
-
-
+        expand(f"{sentinel}/{{formula}}_data_inserted.flag", formula=lambda wildcards: get_formulas()),
 
 
 # Helper function to read formulas from formulas.txt
 def get_formulas():
     try:
-        with open("./config/surge_input.txt") as f:
+        with open(config["files"]["surge_input"]) as f:  # Use the config path for surge_input
             return [line.strip() for line in f if line.strip()]
     except FileNotFoundError:
         return []
