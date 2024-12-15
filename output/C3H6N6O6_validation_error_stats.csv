@@ -1,2 +1,2 @@
-valid,invalid,validation_percentage
-0,10000,0.0
+chemically_invalid,chemically_valid_and_lipinski_valid,chemically_valid_but_lipinski_invalid,total,validation_percentage
+10000,0,0,10000,0.0

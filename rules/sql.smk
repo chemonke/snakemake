@@ -42,7 +42,7 @@ rule insert_data_to_db:
         molecules=f"{output}/{{formula}}_molecules.png",
         summary_stats=f"{output}/{{formula}}_summary_statistics.csv",
         pairplot=f"{output}/{{formula}}_pairplot.png",
-        lipinski_results=f"{output}/{{formula}}_lipinski_results_with_fragments.csv",
+        results=f"{output}/{{formula}}_results.csv",
         sql_sentinel=config["files"]["sql_running_sentinel"],
         pydev_sentinel=config["files"]["pydev_sentinel"]
     output:
@@ -57,7 +57,8 @@ rule insert_data_to_db:
         docker run --rm --user $(id -u):$(id -g) --network=my_network \
             -v $(pwd):/workspace -w /workspace pydev \
             /opt/conda/envs/pydev/bin/python scripts/sql.py \
-            --input {input.lipinski_results} \
+            --input {input.results} \
+            --stats {input.validation_stats} \
             --formula {wildcards.formula} \
             --user {params.user} \
             --password {params.password} \

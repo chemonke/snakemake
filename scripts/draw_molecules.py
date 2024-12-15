@@ -10,8 +10,13 @@ def generate_images(csv_file, output_file, max_molecules=10):
     data = pd.read_csv(csv_file)
 
     # Ensure necessary columns are present
-    if "SMILES" not in data.columns or "lipinski_valid" not in data.columns:
-        raise ValueError("CSV must contain 'SMILES' and 'Valid' columns.")
+    required_columns = ["SMILES", "lipinski_valid", "chemval"]
+    for col in required_columns:
+        if col not in data.columns:
+            raise ValueError(f"CSV must contain '{col}' column.")
+
+    # Filter data to only include molecules with chemval = True
+    data = data[data["chemval"] == True]
 
     # Limit molecules to max_molecules per category
     valid_mols = [Chem.MolFromSmiles(smiles) for smiles in data[data["lipinski_valid"] == True]["SMILES"][:max_molecules] if Chem.MolFromSmiles(smiles)]

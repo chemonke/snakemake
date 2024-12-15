@@ -14,7 +14,6 @@ include: "./rules/data_generation.smk"
 include: "./rules/analytics.smk"
 include: "./rules/sql.smk"
 
-
 rule all:
     input:
         # Ensure Docker containers and network are ready
@@ -26,9 +25,7 @@ rule all:
         expand(f"{output}/{{formula}}_surge_output.smi", formula=lambda wildcards: get_formulas()),
 
         # Lipinski results processing outputs
-        expand(f"{output}/{{formula}}_lipinski_results.csv", formula=lambda wildcards: get_formulas()),
-        expand(f"{output}/{{formula}}_lipinski_results_with_fragments.csv", formula=lambda wildcards: get_formulas()),
-        expand(f"{output}/{{formula}}_lipinski_results_chemval.csv", formula=lambda wildcards: get_formulas()),
+        expand(f"{output}/{{formula}}_results.csv", formula=lambda wildcards: get_formulas()),
 
         # Outputs from statistical analysis
         expand(f"{output}/{{formula}}_summary_statistics.csv", formula=lambda wildcards: get_formulas()),

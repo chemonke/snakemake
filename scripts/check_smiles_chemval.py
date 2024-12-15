@@ -1,9 +1,8 @@
-import argparse
+import os
 import csv
 from rdkit import Chem
 from rdkit.Chem import FilterCatalog
 
-# Initialize PAINS filter catalog
 def initialize_pains_catalog():
     params = FilterCatalog.FilterCatalogParams()
     params.AddCatalog(FilterCatalog.FilterCatalogParams.FilterCatalogs.PAINS_A)
@@ -13,8 +12,8 @@ def initialize_pains_catalog():
 
 catalog = initialize_pains_catalog()
 
-# Define validation function
 def check_violations(smiles):
+    """Check chemical rules and return validation status and violations."""
     violations = []
 
     # Convert SMILES to RDKit Molecule
@@ -54,31 +53,41 @@ def check_violations(smiles):
     if mol.HasSubstructMatch(Chem.MolFromSmarts("[N][N]")):
         violations.append("Hydrazine")
 
+    # Rule: No peroxides
+    if mol.HasSubstructMatch(Chem.MolFromSmarts("OO")):
+        violations.append("Peroxide")
+
     # chemval is True if no violations, False otherwise
     chemval = len(violations) == 0
 
     return chemval, violations
 
-# CSV Processing Function
-def process_csv(input_file, output_file):
-    with open(input_file, mode='r', newline='') as infile, open(output_file, mode='w', newline='') as outfile:
-        reader = csv.DictReader(infile)
-        fieldnames = reader.fieldnames + ["chemval", "chem_violation"]
-        writer = csv.DictWriter(outfile, fieldnames=fieldnames)
+def process_chemval(df):
+    """Process a DataFrame to validate SMILES and append chemval columns."""
+    df = df.copy()
+    chemval_results = df['SMILES'].apply(check_violations)
+    df['chemval'] = chemval_results.apply(lambda x: x[0])
+    
+    # Replace NaN or empty values in 'chem_violation' with "N/A"
+    df['chem_violation'] = chemval_results.apply(lambda x: ", ".join(x[1]) if x[1] else "N/A")
+    
+    return df
 
-        writer.writeheader()
-        for row in reader:
-            smiles = row.get("SMILES", "")
-            chemval, violations = check_violations(smiles)
-            row["chemval"] = chemval
-            row["chem_violation"] = ", ".join(violations) if violations else ""
-            writer.writerow(row)
-
-# Main Entry Point
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Validate SMILES in a CSV file using PAINS filters and additional rules. Add chemval and chem_violation columns.")
+    import argparse
+    import pandas as pd
+
+    parser = argparse.ArgumentParser(description="Validate SMILES in a CSV file using PAINS filters and additional rules.")
     parser.add_argument("--input", required=True, help="Path to input CSV file.")
     parser.add_argument("--output", required=True, help="Path to output CSV file.")
     args = parser.parse_args()
 
-    process_csv(args.input, args.output)
+    # Load input CSV
+    input_df = pd.read_csv(args.input)
+
+    # Process chemical validation
+    output_df = process_chemval(input_df)
+
+    # Save results
+    output_df.to_csv(args.output, index=False)
+    print(f"Processed data saved to {args.output}")

@@ -1,0 +1,426 @@
+SMILES,MW,HBA,HBD,LogP,lipinski_valid,Error,Fragments,chemval,chem_violation
+O=COC(C)(O)C,104.047344116,3,1,-0.11220000000000002,True,False,"['[4*]C(C)(C)O', '[3*]OC=O']",False,Geminal diol/triol
+C=COC(C)(O)O,104.047344116,3,2,-0.19520000000000004,True,False,"['[3*]OC=C', '[4*]C(C)(O)O']",False,"Geminal diol/triol, Enol"
+O=CCC(C)(O)O,104.047344116,3,2,-0.7238,True,False,['CC(O)(O)CC=O'],False,Geminal diol/triol
+OC=CC(C)(O)O,104.047344116,3,3,-0.24110000000000004,True,False,['CC(O)(O)C=CO'],False,"Geminal diol/triol, Enol"
+C=CCC(O)(O)O,104.047344116,3,3,-0.8068,True,False,['C=CCC(O)(O)O'],False,Geminal diol/triol
+CC=CC(O)(O)O,104.047344116,3,3,-0.8068,True,False,"['[7*]CC(O)(O)O', '[7*]CC']",False,Geminal diol/triol
+OC(=O)C(C)(O)C,104.047344116,2,2,-0.15810000000000013,True,False,['CC(C)(O)C(=O)O'],True,N/A
+CC(=O)C(C)(O)O,104.047344116,3,2,-0.7238,True,False,['CC(=O)C(C)(O)O'],False,Geminal diol/triol
+C=C(O)C(C)(O)O,104.047344116,3,3,-0.24110000000000004,True,False,['C=C(O)C(C)(O)O'],False,"Geminal diol/triol, Enol"
+CC(=C)C(O)(O)O,104.047344116,3,3,-0.8068,True,False,['C=C(C)C(O)(O)O'],False,Geminal diol/triol
+CC(O)OC(=O)C,104.047344116,3,1,-0.11220000000000013,True,False,"['[1*]C(C)=O', '[3*]O[3*]', '[4*]C(C)O']",False,Geminal diol/triol
+CC(O)OC(O)=C,104.047344116,3,2,0.37049999999999994,True,False,"['[4*]C(C)O', '[3*]OC(=C)O']",False,"Geminal diol/triol, Enol"
+CC(C)OC(=O)O,104.047344116,2,1,1.0894,True,False,"['[3*]O[3*]', '[4*]C(C)C', '[1*]C(=O)O']",False,Geminal diol/triol
+CC(=C)OC(O)O,104.047344116,3,2,-0.19519999999999998,True,False,['C=C(C)OC(O)O'],False,"Geminal diol/triol, Enol"
+CC(O)CC(=O)O,104.047344116,2,2,-0.15809999999999996,True,False,['CC(O)CC(=O)O'],True,N/A
+CC(O)C=C(O)O,104.047344116,3,3,0.32459999999999994,True,False,['CC(O)C=C(O)O'],False,"Geminal diol/triol, Enol"
+CC(=O)CC(O)O,104.047344116,3,2,-0.7238,True,False,['CC(=O)CC(O)O'],False,Geminal diol/triol
+C=C(O)CC(O)O,104.047344116,3,3,-0.24110000000000004,True,False,['C=C(O)CC(O)O'],False,"Geminal diol/triol, Enol"
+CC(O)=CC(O)O,104.047344116,3,3,-0.24110000000000004,True,False,"['[7*]C(C)O', '[7*]CC(O)O']",False,"Geminal diol/triol, Enol"
+OC1OC(O1)(C)C,104.04734411599999,3,1,0.04519999999999991,True,False,['CC1(C)OC(O)O1'],False,Geminal diol/triol
+CC1OC(O1)(O)C,104.047344116,3,1,0.04519999999999996,True,False,['CC1OC(C)(O)O1'],False,Geminal diol/triol
+OC1OC(C1)(O)C,104.047344116,3,2,-0.5664,True,False,['CC1(O)CC(O)O1'],False,Geminal diol/triol
+CC1OC(C1)(O)O,104.047344116,3,2,-0.5664,True,False,['CC1CC(O)(O)O1'],False,Geminal diol/triol
+OC1CC(C1)(O)O,104.047344116,3,3,-1.1780000000000002,True,False,['OC1CC(O)(O)C1'],False,Geminal diol/triol
+CC1(O)C(O1)(O)C,104.047344116,3,2,-0.5664,True,False,['CC1(O)OC1(C)O'],False,Geminal diol/triol
+CC1(C)C(O1)(O)O,104.047344116,3,2,-0.5664,True,False,['CC1(C)OC1(O)O'],False,Geminal diol/triol
+CC1(O)C(C1)(O)O,104.047344116,3,3,-1.1780000000000002,True,False,['CC1(O)CC1(O)O'],False,Geminal diol/triol
+OC(C=C)(O)OC,104.047344116,3,2,-0.5428000000000002,True,False,"['[4*]C(O)(O)C=C', '[3*]OC']",False,Geminal diol/triol
+CC(OC)(O)C=O,104.047344116,3,1,-0.4598,True,False,"['[4*]C(C)(O)C=O', '[3*]OC']",False,Geminal diol/triol
+CC(C=C)(O)OO,104.047344116,3,2,0.37049999999999994,True,False,"['[4*]C(C)(O)C=C', '[3*]OO']",False,"Geminal diol/triol, Peroxide"
+OC(CC)(O)C=O,104.047344116,3,2,-0.7238000000000002,True,False,['CCC(O)(O)C=O'],False,Geminal diol/triol
+OC(C=C)(O)CO,104.047344116,3,3,-1.1544,True,False,['C=CC(O)(O)CO'],False,Geminal diol/triol
+CC(C=O)(C)OO,104.047344116,3,1,0.45349999999999996,True,False,"['[4*]C(C)(C)C=O', '[3*]OO']",False,Peroxide
+CC(CO)(O)C=O,104.047344116,3,2,-1.0714000000000001,True,False,['CC(O)(C=O)CO'],True,N/A
+CC(=O)OCOC,104.047344116,3,0,0.15339999999999998,True,False,"['[1*]C(C)=O', '[3*]OCOC']",False,Geminal diol/triol
+C=C(O)OCOC,104.047344116,3,1,0.6360999999999999,True,False,['C=C(O)OCOC'],False,"Geminal diol/triol, Enol"
+OC(=O)CCOC,104.047344116,2,1,0.10750000000000015,True,False,"['[4*]CCC(=O)O', '[3*]OC']",True,N/A
+OC(O)=CCOC,104.047344116,3,2,0.5902,True,False,"['[4*]CC=C(O)O', '[3*]OC']",False,"Geminal diol/triol, Enol"
+OC(O)C=COC,104.047344116,3,2,-0.5428000000000002,True,False,['COC=CC(O)O'],False,"Geminal diol/triol, Enol"
+OC(=O)OCCC,104.04734411599999,2,1,1.091,True,False,"['[4*]CCC', '[3*]O[3*]', '[1*]C(=O)O']",False,Geminal diol/triol
+OC(O)OC=CC,104.04734411599999,3,2,-0.19520000000000004,True,False,['CC=COC(O)O'],False,"Geminal diol/triol, Enol"
+OC(O)OCC=C,104.04734411599999,3,2,-0.5428000000000002,True,False,"['[3*]OC(O)O', '[4*]CC=C']",False,Geminal diol/triol
+CC(=C)OCOO,104.047344116,3,1,0.9837,True,False,['C=C(C)OCOO'],False,"Geminal diol/triol, Enol, Peroxide"
+CC(=O)CCOO,104.047344116,3,1,0.4551,True,False,"['[4*]CCC(C)=O', '[3*]OO']",False,Peroxide
+C=C(O)CCOO,104.047344116,3,2,0.9378,True,False,"['[4*]CCC(=C)O', '[3*]OO']",False,"Enol, Peroxide"
+CC(O)=CCOO,104.047344116,3,2,0.9378,True,False,"['[4*]CC[7*]', '[7*]C(C)O', '[3*]OO']",False,"Enol, Peroxide"
+CC(O)C=COO,104.047344116,3,2,0.37049999999999994,True,False,['CC(O)C=COO'],False,"Enol, Peroxide"
+CC(=O)OCCO,104.047344116,3,1,-0.4581999999999999,True,False,"['[1*]C(C)=O', '[4*]CCO', '[3*]O[3*]']",True,N/A
+C=C(O)OCCO,104.047344116,3,2,0.024499999999999966,True,False,"['[4*]CCO', '[3*]OC(=C)O']",False,"Geminal diol/triol, Enol"
+CC(O)OC=CO,104.047344116,3,2,0.37049999999999994,True,False,"['[4*]C(C)O', '[3*]OC=CO']",False,"Geminal diol/triol, Enol"
+CC(O)OCC=O,104.047344116,3,1,-0.4598,True,False,"['[4*]C(C)O', '[3*]O[3*]', '[4*]CC=O']",False,Geminal diol/triol
+OC(=O)CCCO,104.047344116,2,2,-0.15650000000000003,True,False,['O=C(O)CCCO'],True,N/A
+OC(O)=CCCO,104.047344116,3,3,0.3262,True,False,['OCCC=C(O)O'],False,"Geminal diol/triol, Enol"
+OC(O)C=CCO,104.047344116,3,3,-1.1544,True,False,"['[7*]CCO', '[7*]CC(O)O']",False,Geminal diol/triol
+OC(O)CC=CO,104.047344116,3,3,-0.24110000000000015,True,False,['OC=CCC(O)O'],False,"Geminal diol/triol, Enol"
+OC(O)CCC=O,104.047344116,3,2,-0.7238000000000002,True,False,['O=CCCC(O)O'],False,Geminal diol/triol
+CC(=C)OOOC,104.047344116,3,0,1.0295999999999998,True,False,['C=C(C)OOOC'],False,"Enol, Peroxide"
+CC(=O)COOC,104.047344116,3,0,0.15339999999999998,True,False,"['[3*]OOC', '[4*]CC(C)=O']",False,Peroxide
+C=C(O)COOC,104.047344116,3,1,0.6360999999999999,True,False,"['[4*]CC(=C)O', '[3*]OOC']",False,"Enol, Peroxide"
+CC(O)=COOC,104.047344116,3,1,0.9837,True,False,['COOC=C(C)O'],False,"Enol, Peroxide"
+CC(=O)OOCC,104.047344116,3,0,0.501,True,False,"['[1*]C(C)=O', '[4*]CC', '[3*]OO[3*]']",False,Peroxide
+C=C(O)OOCC,104.047344116,3,1,0.9837,True,False,"['[4*]CC', '[3*]OOC(=C)O']",False,"Geminal diol/triol, Enol, Peroxide"
+CC(O)OOC=C,104.047344116,3,1,0.41639999999999994,True,False,"['[4*]C(C)O', '[3*]OOC=C']",False,"Geminal diol/triol, Enol, Peroxide"
+OC(=O)COCC,104.04734411599999,2,1,0.10750000000000015,True,False,"['[4*]CC', '[3*]O[3*]', '[4*]CC(=O)O']",True,N/A
+OC(O)=COCC,104.04734411599999,3,2,0.9378,True,False,"['[3*]OC=C(O)O', '[4*]CC']",False,"Geminal diol/triol, Enol"
+OC(O)COC=C,104.04734411599999,3,2,-0.5428000000000002,True,False,"['[3*]OC=C', '[4*]CC(O)O']",False,"Geminal diol/triol, Enol"
+CC(=C)COOO,104.047344116,3,1,0.9837,True,False,"['[4*]CC(=C)C', '[3*]OOO']",False,Peroxide
+CC(C)=COOO,104.047344116,3,1,1.3313000000000001,True,False,['CC(C)=COOO'],False,"Enol, Peroxide"
+CC(=C)OOCO,104.047344116,3,1,0.418,True,False,['C=C(C)OOCO'],False,"Geminal diol/triol, Enol, Peroxide"
+CC(C)OOC=O,104.047344116,3,0,0.4994,True,False,"['[3*]OOC=O', '[4*]C(C)C']",False,Peroxide
+CC(=O)COCO,104.047344116,3,1,-0.4581999999999999,True,False,"['[4*]CC(C)=O', '[3*]OCO']",False,Geminal diol/triol
+C=C(O)COCO,104.047344116,3,2,0.024499999999999966,True,False,"['[4*]CC(=C)O', '[3*]OCO']",False,"Geminal diol/triol, Enol"
+CC(O)=COCO,104.047344116,3,2,0.37209999999999993,True,False,['CC(O)=COCO'],False,"Geminal diol/triol, Enol"
+CC(O)COC=O,104.047344116,3,1,-0.4598,True,False,"['[4*]CC(C)O', '[3*]OC=O']",True,N/A
+OC1(O)OCC1C,104.04734411599999,3,2,-0.7089000000000001,True,False,['CC1COC1(O)O'],False,Geminal diol/triol
+CC1(O)OCC1O,104.047344116,3,2,-0.9140000000000001,True,False,['CC1(O)OCC1O'],False,Geminal diol/triol
+OC1(O)CCC1O,104.047344116,3,3,-1.1780000000000002,True,False,['OC1CCC1(O)O'],False,Geminal diol/triol
+CC1(O)OOC1C,104.047344116,3,1,0.04519999999999996,True,False,['CC1OOC1(C)O'],False,"Geminal diol/triol, Peroxide"
+OC1(O)COC1C,104.04734411599999,3,2,-0.9140000000000001,True,False,['CC1OCC1(O)O'],False,Geminal diol/triol
+CC1(C)OOC1O,104.047344116,3,1,0.04519999999999996,True,False,['CC1(C)OOC1O'],False,"Geminal diol/triol, Peroxide"
+CC1(O)COC1O,104.047344116,3,2,-0.9140000000000001,True,False,['CC1(O)COC1O'],False,Geminal diol/triol
+OCC1C(O)(O)C1,104.047344116,3,3,-1.3205000000000002,True,False,"['[8*]CO', '[15*]C1CC1(O)O']",False,Geminal diol/triol
+OCC1C(C)(O)O1,104.047344116,3,2,-0.9140000000000001,True,False,"['[8*]CO', '[13*]C1OC1(C)O']",False,Geminal diol/triol
+CCC1C(O)(O)O1,104.047344116,3,2,-0.5664,True,False,"['[13*]C1OC1(O)O', '[8*]CC']",False,Geminal diol/triol
+OOC1C(C)(O)C1,104.047344116,3,2,-0.0007000000000000339,True,False,"['[15*]C1CC1(C)O', '[3*]OO']",False,Peroxide
+COC1C(O)(O)C1,104.047344116,3,2,-0.9140000000000001,True,False,"['[15*]C1CC1(O)O', '[3*]OC']",False,Geminal diol/triol
+OOC1C(C)(C)O1,104.047344116,3,1,0.6109,True,False,"['[13*]C1OC1(C)C', '[3*]OO']",False,"Geminal diol/triol, Peroxide"
+COC1C(C)(O)O1,104.047344116,3,1,-0.30239999999999995,True,False,"['[13*]C1OC1(C)O', '[3*]OC']",False,Geminal diol/triol
+CC1(O)OCCO1,104.047344116,3,1,-0.30079999999999996,True,False,['CC1(O)OCCO1'],False,Geminal diol/triol
+OC1(O)OCCC1,104.04734411599999,3,2,-0.5648000000000002,True,False,['OC1(O)CCCO1'],False,Geminal diol/triol
+CC1(O)COOC1,104.047344116,3,1,-0.30079999999999996,True,False,['CC1(O)COOC1'],False,Peroxide
+CC1(O)CCOO1,104.047344116,3,1,0.04680000000000001,True,False,['CC1(O)CCOO1'],False,"Geminal diol/triol, Peroxide"
+OC1(O)CCOC1,104.047344116,3,2,-0.9124000000000001,True,False,['OC1(O)CCOC1'],False,Geminal diol/triol
+CC1(C)OOOC1,104.047344116,3,0,0.6584,True,False,['CC1(C)COOO1'],False,Peroxide
+CC1(C)OCOO1,104.047344116,3,0,0.6584,True,False,['CC1(C)OCOO1'],False,"Geminal diol/triol, Peroxide"
+CC1(O)OCOC1,104.047344116,3,1,-0.30079999999999996,True,False,['CC1(O)COCO1'],False,Geminal diol/triol
+OC1C(C1O)(O)C,104.047344116,3,3,-1.5272000000000003,True,False,['CC1(O)C(O)C1O'],True,N/A
+CC1C(C1O)(O)O,104.047344116,3,3,-1.3221,True,False,['CC1C(O)C1(O)O'],False,Geminal diol/triol
+OCOC(=C)OC,104.047344116,3,1,0.07040000000000002,True,False,['C=C(OC)OCO'],False,"Geminal diol/triol, Enol"
+O=COC(C)OC,104.047344116,3,0,0.15179999999999993,True,False,"['[4*]C([4*])C', '[3*]OC=O', '[3*]OC']",False,Geminal diol/triol
+CCOC(=O)OC,104.047344116,3,0,0.7893000000000001,True,False,"['[4*]CC', '[3*]O[3*]', '[1*]C([1*])=O', '[3*]OC']",False,Geminal diol/triol
+C=COC(O)OC,104.047344116,3,1,0.06879999999999992,True,False,['C=COC(O)OC'],False,"Geminal diol/triol, Enol"
+OCCC(=O)OC,104.047344116,3,1,-0.45820000000000016,True,False,"['[1*]C(=O)CCO', '[3*]OC']",True,N/A
+OCC=C(O)OC,104.047344116,3,2,0.02449999999999991,True,False,['COC(O)=CCO'],False,"Geminal diol/triol, Enol"
+O=CCC(O)OC,104.047344116,3,1,-0.4598,True,False,"['[4*]C(O)CC=O', '[3*]OC']",False,Geminal diol/triol
+OC=CC(O)OC,104.047344116,3,2,0.02289999999999992,True,False,"['[4*]C(O)C=CO', '[3*]OC']",False,"Geminal diol/triol, Enol"
+OCOC(=O)CC,104.04734411599999,3,1,-0.11060000000000003,True,False,"['[1*]C(=O)CC', '[3*]OCO']",False,Geminal diol/triol
+OCOC(O)=CC,104.04734411599999,3,2,0.37210000000000004,True,False,['CC=C(O)OCO'],False,"Geminal diol/triol, Enol"
+O=COC(O)CC,104.04734411599999,3,1,-0.11220000000000008,True,False,"['[3*]OC=O', '[4*]C(O)CC']",False,Geminal diol/triol
+OCOC(O)C=C,104.04734411599999,3,2,-0.5428000000000002,True,False,"['[4*]C(O)C=C', '[3*]OCO']",False,Geminal diol/triol
+CCOC(=C)OO,104.047344116,3,1,0.9837,True,False,"['[4*]CC', '[3*]OC(=C)OO']",False,"Geminal diol/triol, Enol, Peroxide"
+C=COC(C)OO,104.047344116,3,1,0.9821,True,False,"['[3*]OC=C', '[4*]C([4*])C', '[3*]OO']",False,"Geminal diol/triol, Enol, Peroxide"
+OCCC(=C)OO,104.047344116,3,2,0.37209999999999993,True,False,['C=C(CCO)OO'],False,"Enol, Peroxide"
+OCC=C(C)OO,104.047344116,3,2,0.37210000000000004,True,False,"['[7*]C(C)OO', '[7*]CCO']",False,"Enol, Peroxide"
+O=CCC(C)OO,104.047344116,3,1,0.45349999999999996,True,False,"['[4*]C(C)CC=O', '[3*]OO']",False,Peroxide
+OC=CC(C)OO,104.047344116,3,2,0.9361999999999999,True,False,"['[4*]C(C)C=CO', '[3*]OO']",False,"Enol, Peroxide"
+OCOC(=C)CO,104.047344116,3,2,-0.5412000000000001,True,False,['C=C(CO)OCO'],False,"Geminal diol/triol, Enol"
+OCOC(C)=CO,104.047344116,3,2,0.37210000000000004,True,False,['CC(=CO)OCO'],False,"Geminal diol/triol, Enol"
+O=COC(C)CO,104.047344116,3,1,-0.45980000000000015,True,False,"['[3*]OC=O', '[4*]C(C)CO']",True,N/A
+OCOC(C)C=O,104.047344116,3,1,-0.4598,True,False,"['[4*]C(C)C=O', '[3*]OCO']",False,Geminal diol/triol
+CCCC(=O)OO,104.047344116,3,1,0.8027,True,False,"['[1*]C(=O)CCC', '[3*]OO']",False,Peroxide
+CCC=C(O)OO,104.047344116,3,2,1.2854,True,False,['CCC=C(O)OO'],False,"Geminal diol/triol, Enol, Peroxide"
+C=CCC(O)OO,104.047344116,3,2,0.37049999999999994,True,False,"['[4*]C(O)CC=C', '[3*]OO']",False,"Geminal diol/triol, Peroxide"
+CC=CC(O)OO,104.047344116,3,2,0.3705,True,False,"['[7*]CC', '[4*]C(O)C[7*]', '[3*]OO']",False,"Geminal diol/triol, Peroxide"
+CCOC(=O)CO,104.047344116,3,1,-0.4581999999999999,True,False,"['[4*]CC', '[3*]O[3*]', '[1*]C(=O)CO']",True,N/A
+CCOC(O)=CO,104.047344116,3,2,0.9378,True,False,"['[4*]CC', '[3*]OC(O)=CO']",False,"Geminal diol/triol, Enol"
+C=COC(O)CO,104.047344116,3,2,-0.5428000000000002,True,False,"['[3*]OC=C', '[4*]C(O)CO']",False,"Geminal diol/triol, Enol"
+CCOC(O)C=O,104.047344116,3,1,-0.4598,True,False,"['[4*]CC', '[4*]C(O)C=O', '[3*]O[3*]']",False,Geminal diol/triol
+OCCC(=O)CO,104.047344116,3,2,-1.0698000000000003,True,False,['O=C(CO)CCO'],True,N/A
+OCC=C(O)CO,104.047344116,3,3,-0.5871,True,False,"['[7*]C(O)CO', '[7*]CCO']",False,Enol
+OCCC(O)=CO,104.047344116,3,3,0.32619999999999993,True,False,['OC=C(O)CCO'],False,Enol
+O=CCC(O)CO,104.047344116,3,2,-1.0714000000000001,True,False,['O=CCC(O)CO'],True,N/A
+OC=CC(O)CO,104.047344116,3,3,-0.5887000000000002,True,False,['OC=CC(O)CO'],False,Enol
+OCCC(O)C=O,104.047344116,3,2,-1.0714000000000001,True,False,['O=CC(O)CCO'],True,N/A
+COOC(=C)OC,104.047344116,3,0,0.6819999999999999,True,False,['C=C(OC)OOC'],False,"Geminal diol/triol, Enol, Peroxide"
+OOCC(=C)OC,104.047344116,3,1,0.6360999999999999,True,False,"['[4*]CC(=C)OC', '[3*]OO']",False,"Enol, Peroxide"
+OOC=C(C)OC,104.047344116,3,1,0.9837,True,False,['COC(C)=COO'],False,"Enol, Peroxide"
+OOOC(=C)CC,104.04734411599999,3,1,1.3313,True,False,['C=C(CC)OOO'],False,"Enol, Peroxide"
+OOOC(C)=CC,104.04734411599999,3,1,1.3313,True,False,"['[7*]C(C)OOO', '[7*]CC']",False,"Enol, Peroxide"
+OOOC(C)C=C,104.04734411599999,3,1,0.9821,True,False,"['[4*]C(C)C=C', '[3*]OOO']",False,Peroxide
+COCC(=O)OC,104.047344116,3,0,-0.19419999999999993,True,False,"['[1*]C(=O)C[4*]', '[3*]OC']",True,N/A
+COC=C(O)OC,104.047344116,3,1,0.6360999999999999,True,False,['COC=C(O)OC'],False,"Geminal diol/triol, Enol"
+COOC(=O)CC,104.04734411599999,3,0,0.5009999999999999,True,False,"['[3*]OOC', '[1*]C(=O)CC']",False,Peroxide
+COOC(O)=CC,104.04734411599999,3,1,0.9837,True,False,['CC=C(O)OOC'],False,"Geminal diol/triol, Enol, Peroxide"
+COOC(O)C=C,104.04734411599999,3,1,0.06880000000000003,True,False,"['[4*]C(O)C=C', '[3*]OOC']",False,"Geminal diol/triol, Peroxide"
+OOCC(=O)CC,104.04734411599999,3,1,0.4551,True,False,"['[4*]CC(=O)CC', '[3*]OO']",False,Peroxide
+OOC=C(O)CC,104.04734411599999,3,2,1.2853999999999999,True,False,['CCC(O)=COO'],False,"Enol, Peroxide"
+OOCC(O)=CC,104.04734411599999,3,2,0.9378,True,False,"['[7*]CC', '[4*]CC([7*])O', '[3*]OO']",False,"Enol, Peroxide"
+OOCC(O)C=C,104.04734411599999,3,2,0.02289999999999992,True,False,"['[4*]CC(O)C=C', '[3*]OO']",False,Peroxide
+COCC(=C)OO,104.047344116,3,1,0.6361000000000001,True,False,"['[4*]CC(=C)OO', '[3*]OC']",False,"Enol, Peroxide"
+COC=C(C)OO,104.047344116,3,1,0.9837,True,False,['COC=C(C)OO'],False,"Enol, Peroxide"
+COOC(=C)CO,104.047344116,3,1,0.07039999999999996,True,False,['C=C(CO)OOC'],False,"Enol, Peroxide"
+COOC(C)=CO,104.047344116,3,1,0.9837,True,False,['COOC(C)=CO'],False,"Enol, Peroxide"
+COOC(C)C=O,104.047344116,3,0,0.15179999999999993,True,False,"['[3*]OOC', '[4*]C(C)C=O']",False,Peroxide
+OOCC(=C)CO,104.047344116,3,2,0.024499999999999966,True,False,"['[4*]CC(=C)CO', '[3*]OO']",False,Peroxide
+OOC=C(C)CO,104.047344116,3,2,0.37209999999999993,True,False,['CC(=COO)CO'],False,"Enol, Peroxide"
+OOCC(C)=CO,104.047344116,3,2,0.9378,True,False,"['[4*]CC(C)=CO', '[3*]OO']",False,"Enol, Peroxide"
+OOCC(C)C=O,104.047344116,3,1,0.31099999999999994,True,False,"['[4*]CC(C)C=O', '[3*]OO']",False,Peroxide
+COCC(=O)CO,104.047344116,3,1,-0.8057999999999998,True,False,"['[4*]CC(=O)CO', '[3*]OC']",True,N/A
+COC=C(O)CO,104.047344116,3,2,0.024499999999999966,True,False,['COC=C(O)CO'],False,Enol
+COCC(O)=CO,104.047344116,3,2,0.5902000000000001,True,False,"['[4*]CC(O)=CO', '[3*]OC']",False,Enol
+COCC(O)C=O,104.047344116,3,1,-0.8074000000000001,True,False,"['[4*]CC(O)C=O', '[3*]OC']",True,N/A
+OC(O)=C(C)OC,104.047344116,3,2,0.9378,True,False,['COC(C)=C(O)O'],False,"Geminal diol/triol, Enol"
+OC(O)C(=C)OC,104.047344116,3,2,-0.5428000000000002,True,False,['C=C(OC)C(O)O'],False,"Geminal diol/triol, Enol"
+OC(=O)C(C)OC,104.047344116,2,1,0.1059000000000001,True,False,"['[4*]C(C)C(=O)O', '[3*]OC']",True,N/A
+CC(O)=C(O)OC,104.047344116,3,2,0.9378,True,False,['COC(O)=C(C)O'],False,"Geminal diol/triol, Enol"
+CC(O)C(=O)OC,104.047344116,3,1,-0.4598000000000002,True,False,"['[1*]C(=O)C(C)O', '[3*]OC']",True,N/A
+CC(=O)C(O)OC,104.047344116,3,1,-0.4598,True,False,"['[4*]C(O)C(C)=O', '[3*]OC']",False,Geminal diol/triol
+C=C(O)C(O)OC,104.047344116,3,2,0.02289999999999992,True,False,"['[4*]C(O)C(=C)O', '[3*]OC']",False,"Geminal diol/triol, Enol"
+OC(O)=C(O)CC,104.04734411599999,3,3,1.2395,True,False,['CCC(O)=C(O)O'],False,"Geminal diol/triol, Enol"
+OC(O)C(=O)CC,104.04734411599999,3,2,-0.7238,True,False,['CCC(=O)C(O)O'],False,Geminal diol/triol
+OC(O)C(O)=CC,104.04734411599999,3,3,-0.2411000000000001,True,False,"['[7*]C(O)C(O)O', '[7*]CC']",False,"Geminal diol/triol, Enol"
+OC(=O)C(O)CC,104.04734411599999,2,2,-0.15810000000000013,True,False,['CCC(O)C(=O)O'],True,N/A
+OC(O)C(O)C=C,104.04734411599999,3,3,-1.1560000000000004,True,False,['C=CC(O)C(O)O'],False,Geminal diol/triol
+CC(O)=C(C)OO,104.047344116,3,2,1.2854,True,False,"['[7*]C(C)O', '[7*]C(C)OO']",False,"Enol, Peroxide"
+CC(O)C(=C)OO,104.047344116,3,2,0.37049999999999994,True,False,['C=C(OO)C(C)O'],False,"Enol, Peroxide"
+CC(=O)C(C)OO,104.047344116,3,1,0.45349999999999996,True,False,"['[4*]C(C)C(C)=O', '[3*]OO']",False,Peroxide
+C=C(O)C(C)OO,104.047344116,3,2,0.9361999999999999,True,False,"['[4*]C(C)C(=C)O', '[3*]OO']",False,"Enol, Peroxide"
+OC(O)=C(C)CO,104.047344116,3,3,0.3262,True,False,['CC(CO)=C(O)O'],False,"Geminal diol/triol, Enol"
+OC(O)C(=C)CO,104.047344116,3,3,-1.1544,True,False,['C=C(CO)C(O)O'],False,Geminal diol/triol
+OC(O)C(C)=CO,104.047344116,3,3,-0.24110000000000015,True,False,['CC(=CO)C(O)O'],False,"Geminal diol/triol, Enol"
+OC(=O)C(C)CO,104.047344116,2,2,-0.3005999999999999,True,False,['CC(CO)C(=O)O'],True,N/A
+OC(O)C(C)C=O,104.047344116,3,2,-0.8679000000000001,True,False,['CC(C=O)C(O)O'],False,Geminal diol/triol
+CC(C)=C(O)OO,104.047344116,3,2,1.2854,True,False,['CC(C)=C(O)OO'],False,"Geminal diol/triol, Enol, Peroxide"
+CC(C)C(=O)OO,104.047344116,3,1,0.6586000000000001,True,False,"['[1*]C(=O)C(C)C', '[3*]OO']",False,Peroxide
+CC(=C)C(O)OO,104.047344116,3,2,0.3705,True,False,"['[4*]C(O)C(=C)C', '[3*]OO']",False,"Geminal diol/triol, Peroxide"
+CC(O)=C(O)CO,104.047344116,3,3,0.3262,True,False,"['[7*]C(C)O', '[7*]C(O)CO']",False,Enol
+CC(O)C(=O)CO,104.047344116,3,2,-1.0714000000000001,True,False,['CC(O)C(=O)CO'],True,N/A
+CC(O)C(O)=CO,104.047344116,3,3,0.32459999999999994,True,False,['CC(O)C(O)=CO'],False,Enol
+CC(=O)C(O)CO,104.047344116,3,2,-1.0714000000000001,True,False,['CC(=O)C(O)CO'],True,N/A
+C=C(O)C(O)CO,104.047344116,3,3,-0.5887,True,False,['C=C(O)C(O)CO'],False,Enol
+CC(O)C(O)C=O,104.047344116,3,2,-1.0730000000000002,True,False,['CC(O)C(O)C=O'],True,N/A
+CC1(OC)OCO1,104.047344116,3,0,0.31079999999999997,True,False,"['[4*]C1(C)OCO1', '[13*]C1(C)OCO1', '[3*]OC']",False,Geminal diol/triol
+OC1(OC)OCC1,104.04734411599999,3,1,-0.30079999999999996,True,False,"['[13*]C1(O)CCO1', '[3*]OC']",False,Geminal diol/triol
+OC1(CC)OCO1,104.047344116,3,1,0.04679999999999995,True,False,"['[13*]C1(O)OCO1', '[8*]CC']",False,Geminal diol/triol
+CC1(OO)OCC1,104.047344116,3,1,0.6125,True,False,"['[4*]C1(C)CCO1', '[13*]C1(C)CCO1', '[3*]OO']",False,"Geminal diol/triol, Peroxide"
+CC1(CO)OCO1,104.047344116,3,1,-0.30079999999999996,True,False,"['[8*]CO', '[13*]C1(C)OCO1']",False,Geminal diol/triol
+OC1(OO)CCC1,104.04734411599999,3,2,0.3485,True,False,"['[15*]C1(O)CCC1', '[3*]OO']",False,"Geminal diol/triol, Peroxide"
+OC1(CO)OCC1,104.047344116,3,2,-0.9123999999999999,True,False,"['[8*]CO', '[13*]C1(O)CCO1']",False,Geminal diol/triol
+CC1(OC)OOC1,104.047344116,3,0,0.31079999999999997,True,False,"['[4*]C1(C)COO1', '[13*]C1(C)COO1', '[3*]OC']",False,"Geminal diol/triol, Peroxide"
+CC1(CC)OOO1,104.047344116,3,0,1.006,True,False,"['[13*]C1(C)OOO1', '[8*]CC']",False,"Geminal diol/triol, Peroxide"
+OC1(OC)COC1,104.047344116,3,1,-0.6484000000000001,True,False,"['[15*]C1(O)COC1', '[3*]OC']",False,Geminal diol/triol
+OC1(CC)OOC1,104.047344116,3,1,0.04679999999999995,True,False,"['[13*]C1(O)COO1', '[8*]CC']",False,"Geminal diol/triol, Peroxide"
+CC1(OO)COC1,104.047344116,3,1,0.26489999999999997,True,False,"['[15*]C1(C)COC1', '[4*]C1(C)COC1', '[3*]OO']",False,Peroxide
+CC1(CO)OOC1,104.047344116,3,1,-0.30079999999999996,True,False,"['[8*]CO', '[13*]C1(C)COO1']",False,Peroxide
+OC1(CO)COC1,104.047344116,3,2,-1.26,True,False,"['[8*]CO', '[15*]C1(O)COC1']",True,N/A
+OCOC1(O)CC1,104.04734411599999,3,2,-0.5648000000000002,True,False,"['[15*]C1(O)CC1', '[3*]OCO']",False,Geminal diol/triol
+CCOC1(C)OO1,104.047344116,3,0,0.6584,True,False,"['[4*]CC', '[13*]C1(C)OO1', '[3*]O[3*]', '[4*]C1(C)OO1']",False,"Geminal diol/triol, Peroxide"
+OCCC1(C)OO1,104.047344116,3,1,0.04679999999999995,True,False,"['[13*]C1(C)OO1', '[8*]CCO']",False,"Geminal diol/triol, Peroxide"
+OCOC1(C)OC1,104.047344116,3,1,-0.30079999999999996,True,False,"['[13*]C1(C)CO1', '[4*]C1(C)CO1', '[3*]OCO']",False,Geminal diol/triol
+CCCC1(O)OO1,104.047344116,3,1,0.3943999999999999,True,False,"['[8*]CCC', '[13*]C1(O)OO1']",False,"Geminal diol/triol, Peroxide"
+CCOC1(O)OC1,104.047344116,3,1,-0.30079999999999996,True,False,"['[4*]CC', '[3*]O[3*]', '[13*]C1(O)CO1']",False,Geminal diol/triol
+OCCC1(O)OC1,104.047344116,3,2,-0.9124000000000001,True,False,"['[13*]C1(O)CO1', '[8*]CCO']",False,Geminal diol/triol
+OOOC1(C)CC1,104.04734411599999,3,1,0.9601,True,False,"['[15*]C1(C)CC1', '[4*]C1(C)CC1', '[3*]OOO']",False,Peroxide
+COOC1(O)CC1,104.04734411599999,3,1,0.04680000000000001,True,False,"['[3*]OOC', '[15*]C1(O)CC1']",False,"Geminal diol/triol, Peroxide"
+OOCC1(O)CC1,104.04734411599999,3,2,0.0008999999999999009,True,False,"['[15*]C1(O)CC1', '[4*]C[8*]', '[3*]OO']",False,Peroxide
+COCC1(C)OO1,104.047344116,3,0,0.3108000000000001,True,False,"['[13*]C1(C)OO1', '[4*]C[8*]', '[3*]OC']",False,"Geminal diol/triol, Peroxide"
+COOC1(C)OC1,104.047344116,3,0,0.31079999999999997,True,False,"['[3*]OOC', '[13*]C1(C)CO1', '[4*]C1(C)CO1']",False,"Geminal diol/triol, Peroxide"
+OOCC1(C)OC1,104.047344116,3,1,0.2648999999999999,True,False,"['[13*]C1(C)CO1', '[4*]C[8*]', '[3*]OO']",False,Peroxide
+COCC1(O)OC1,104.047344116,3,1,-0.6483999999999999,True,False,"['[4*]C[8*]', '[13*]C1(O)CO1', '[3*]OC']",False,Geminal diol/triol
+OC1C(OC)(C)O1,104.047344116,3,1,-0.3024,True,False,"['[13*]C1(C)OC1O', '[4*]C1(C)OC1O', '[3*]OC']",False,Geminal diol/triol
+CC1C(OC)(O)O1,104.047344116,3,1,-0.30240000000000006,True,False,"['[13*]C1(O)OC1C', '[3*]OC']",False,Geminal diol/triol
+OC1C(OC)(O)C1,104.047344116,3,2,-0.9140000000000001,True,False,"['[15*]C1(O)CC1O', '[3*]OC']",False,Geminal diol/triol
+OC1C(CC)(O)O1,104.047344116,3,2,-0.5664,True,False,"['[8*]CC', '[13*]C1(O)OC1O']",False,Geminal diol/triol
+CC1C(OO)(C)O1,104.047344116,3,1,0.6109,True,False,"['[13*]C1(C)OC1C', '[4*]C1(C)OC1C', '[3*]OO']",False,"Geminal diol/triol, Peroxide"
+OC1C(OO)(C)C1,104.047344116,3,2,-0.0006999999999999229,True,False,"['[15*]C1(C)CC1O', '[4*]C1(C)CC1O', '[3*]OO']",False,Peroxide
+OC1C(CO)(C)O1,104.047344116,3,2,-0.9140000000000001,True,False,"['[8*]CO', '[13*]C1(C)OC1O']",False,Geminal diol/triol
+CC1C(OO)(O)C1,104.047344116,3,2,0.20440000000000003,True,False,"['[15*]C1(O)CC1C', '[3*]OO']",False,"Geminal diol/triol, Peroxide"
+CC1C(CO)(O)O1,104.047344116,3,2,-0.9140000000000001,True,False,"['[8*]CO', '[13*]C1(O)OC1C']",False,Geminal diol/triol
+OC1C(CO)(O)C1,104.047344116,3,3,-1.5256,True,False,"['[8*]CO', '[15*]C1(O)CC1O']",True,N/A
+OC(O)C1(O)CC1,104.04734411599999,3,3,-1.1780000000000004,True,False,"['[15*]C1(O)CC1', '[8*]C(O)O']",False,Geminal diol/triol
+CC(O)C1(C)OO1,104.047344116,3,1,0.04519999999999996,True,False,"['[13*]C1(C)OO1', '[8*]C(C)O']",False,"Geminal diol/triol, Peroxide"
+OC(O)C1(C)OC1,104.047344116,3,2,-0.9140000000000001,True,False,"['[13*]C1(C)CO1', '[8*]C(O)O']",False,Geminal diol/triol
+CC(C)C1(O)OO1,104.047344116,3,1,0.2503,True,False,"['[8*]C(C)C', '[13*]C1(O)OO1']",False,"Geminal diol/triol, Peroxide"
+CC(O)C1(O)OC1,104.047344116,3,2,-0.9140000000000001,True,False,"['[13*]C1(O)CO1', '[8*]C(C)O']",False,Geminal diol/triol
+OC(C1CC1)(O)O,104.047344116,3,3,-0.9729000000000001,True,False,"['[15*]C1CC1', '[8*]C(O)(O)O']",False,Geminal diol/triol
+CC(C1OC1)(O)O,104.047344116,3,2,-0.9140000000000001,True,False,"['[8*]C(C)(O)O', '[13*]C1CO1']",False,Geminal diol/triol
+CC(C1OO1)(O)C,104.047344116,3,1,0.04519999999999996,True,False,"['[13*]C1OO1', '[8*]C(C)(C)O']",False,"Geminal diol/triol, Peroxide"
+OC1OC(O)CC1,104.04734411599999,3,2,-0.5664,True,False,['OC1CCC(O)O1'],False,Geminal diol/triol
+CC1OC(C)OO1,104.047344116,3,0,0.6567999999999999,True,False,['CC1OOC(C)O1'],False,"Geminal diol/triol, Peroxide"
+OC1OC(C)OC1,104.047344116,3,1,-0.3024,True,False,['CC1OCC(O)O1'],False,Geminal diol/triol
+CC1CC(O)OO1,104.047344116,3,1,0.04519999999999996,True,False,['CC1CC(O)OO1'],False,"Geminal diol/triol, Peroxide"
+CC1OC(O)OC1,104.047344116,3,1,-0.3024,True,False,['CC1COC(O)O1'],False,Geminal diol/triol
+OC1CC(O)OC1,104.047344116,3,2,-0.9140000000000001,True,False,['OC1COC(O)C1'],False,Geminal diol/triol
+CC1OC(OC)O1,104.047344116,3,0,0.3091999999999999,True,False,"['[13*]C1OC(C)O1', '[3*]OC']",False,Geminal diol/triol
+OC1OC(OC)C1,104.04734411599999,3,1,-0.3024,True,False,"['[13*]C1CC(O)O1', '[3*]OC']",False,Geminal diol/triol
+OC1OC(CC)O1,104.047344116,3,1,0.04519999999999991,True,False,"['[13*]C1OC(O)O1', '[8*]CC']",False,Geminal diol/triol
+CC1OC(OO)C1,104.047344116,3,1,0.6109,True,False,"['[13*]C1CC(C)O1', '[3*]OO']",False,"Geminal diol/triol, Peroxide"
+CC1OC(CO)O1,104.047344116,3,1,-0.30240000000000006,True,False,"['[8*]CO', '[13*]C1OC(C)O1']",False,Geminal diol/triol
+OC1CC(OO)C1,104.047344116,3,2,-0.0006999999999999784,True,False,"['[15*]C1CC(O)C1', '[3*]OO']",False,Peroxide
+OC1OC(CO)C1,104.047344116,3,2,-0.9140000000000001,True,False,"['[8*]CO', '[13*]C1CC(O)O1']",False,Geminal diol/triol
+OC(O)OC1CC1,104.04734411599999,3,2,-0.5664000000000002,True,False,"['[15*]C1CC1', '[3*]OC(O)O']",False,Geminal diol/triol
+CC(C)OC1OO1,104.047344116,3,0,0.6567999999999999,True,False,"['[13*]C1OO1', '[3*]O[3*]', '[4*]C(C)C']",False,"Geminal diol/triol, Peroxide"
+CC(O)CC1OO1,104.047344116,3,1,0.04519999999999996,True,False,"['[13*]C1OO1', '[8*]CC(C)O']",False,"Geminal diol/triol, Peroxide"
+CC(O)OC1OC1,104.047344116,3,1,-0.3024,True,False,"['[4*]C(C)O', '[3*]O[3*]', '[13*]C1CO1']",False,Geminal diol/triol
+OC(O)CC1OC1,104.047344116,3,2,-0.9140000000000001,True,False,"['[8*]CC(O)O', '[13*]C1CO1']",False,Geminal diol/triol
+CC1OCOCO1,104.047344116,3,0,0.31079999999999997,True,False,['CC1OCOCO1'],False,Geminal diol/triol
+OC1OCOCC1,104.04734411599999,3,1,-0.30079999999999996,True,False,['OC1CCOCO1'],False,Geminal diol/triol
+OC1OCCCO1,104.047344116,3,1,-0.30079999999999996,True,False,['OC1OCCCO1'],False,Geminal diol/triol
+CC1COOCO1,104.047344116,3,0,0.31079999999999997,True,False,['CC1COOCO1'],False,"Geminal diol/triol, Peroxide"
+CC1OOOCC1,104.047344116,3,0,0.6584,True,False,['CC1CCOOO1'],False,Peroxide
+CC1OOCCO1,104.047344116,3,0,0.31079999999999997,True,False,['CC1OCCOO1'],False,"Geminal diol/triol, Peroxide"
+OC1COOCC1,104.047344116,3,1,-0.30079999999999996,True,False,['OC1CCOOC1'],False,Peroxide
+OC1COCCO1,104.047344116,3,1,-0.6484000000000001,True,False,['OC1COCCO1'],False,Geminal diol/triol
+OC1OOCCC1,104.04734411599999,3,1,0.04679999999999995,True,False,['OC1CCCOO1'],False,"Geminal diol/triol, Peroxide"
+CC1COOOC1,104.047344116,3,0,0.5159,True,False,['CC1COOOC1'],False,Peroxide
+CC1OOCOC1,104.047344116,3,0,0.31079999999999997,True,False,['CC1COCOO1'],False,"Geminal diol/triol, Peroxide"
+OC1COCOC1,104.047344116,3,1,-0.6484000000000001,True,False,['OC1COCOC1'],False,Geminal diol/triol
+CC1C(O)OCO1,104.047344116,3,1,-0.3024,True,False,['CC1OCOC1O'],False,Geminal diol/triol
+OC1C(O)OCC1,104.047344116,3,2,-0.9140000000000001,True,False,['OC1CCOC1O'],False,Geminal diol/triol
+CC1C(C)OOO1,104.047344116,3,0,0.6567999999999999,True,False,['CC1OOOC1C'],False,Peroxide
+CC1C(O)COO1,104.047344116,3,1,-0.3024,True,False,['CC1OOCC1O'],False,Peroxide
+OC1C(O)COC1,104.047344116,3,2,-1.2616,True,False,['OC1COCC1O'],True,N/A
+CC1C(O)OOC1,104.047344116,3,1,-0.0973,True,False,['CC1COOC1O'],False,"Geminal diol/triol, Peroxide"
+OC1C(C)C(O)O1,104.047344116,3,2,-0.7105000000000001,True,False,['CC1C(O)OC1O'],False,Geminal diol/triol
+CC1C(O)C(O)O1,104.047344116,3,2,-0.9156,True,False,['CC1OC(O)C1O'],False,Geminal diol/triol
+OC1C(O)C(O)C1,104.047344116,3,3,-1.5272000000000003,True,False,['OC1CC(O)C1O'],True,N/A
+CCOC1OCO1,104.047344116,3,0,0.31079999999999997,True,False,"['[13*]C1OCO1', '[4*]CC', '[3*]O[3*]']",False,Geminal diol/triol
+OCCC1OCO1,104.047344116,3,1,-0.3008000000000002,True,False,"['[13*]C1OCO1', '[8*]CCO']",False,Geminal diol/triol
+OCOC1OCC1,104.04734411599999,3,1,-0.30079999999999996,True,False,"['[13*]C1CCO1', '[3*]OCO']",False,Geminal diol/triol
+CCCC1OOO1,104.047344116,3,0,1.006,True,False,"['[8*]CCC', '[13*]C1OOO1']",False,"Geminal diol/triol, Peroxide"
+CCOC1OOC1,104.047344116,3,0,0.31079999999999997,True,False,"['[4*]CC', '[3*]O[3*]', '[13*]C1COO1']",False,"Geminal diol/triol, Peroxide"
+OCCC1OOC1,104.047344116,3,1,-0.3008000000000002,True,False,"['[13*]C1COO1', '[8*]CCO']",False,Peroxide
+OCOC1COC1,104.047344116,3,1,-0.6484000000000001,True,False,"['[15*]C1COC1', '[3*]OCO']",False,Geminal diol/triol
+COCC1OCO1,104.047344116,3,0,-0.036799999999999944,True,False,"['[13*]C1OCO1', '[4*]C[8*]', '[3*]OC']",False,Geminal diol/triol
+COOC1OCC1,104.04734411599999,3,0,0.31079999999999997,True,False,"['[3*]OOC', '[13*]C1CCO1']",False,"Geminal diol/triol, Peroxide"
+OOCC1OCC1,104.04734411599999,3,1,0.2648999999999999,True,False,"['[4*]C[8*]', '[13*]C1CCO1', '[3*]OO']",False,Peroxide
+OOOC1CCC1,104.04734411599999,3,1,0.9601,True,False,"['[15*]C1CCC1', '[3*]OOO']",False,Peroxide
+COCC1OOC1,104.047344116,3,0,-0.036799999999999944,True,False,"['[4*]C[8*]', '[13*]C1COO1', '[3*]OC']",False,Peroxide
+COOC1COC1,104.047344116,3,0,-0.036799999999999944,True,False,"['[3*]OOC', '[15*]C1COC1']",False,Peroxide
+OOCC1COC1,104.047344116,3,1,0.12240000000000006,True,False,"['[4*]C[8*]', '[15*]C1COC1', '[3*]OO']",False,Peroxide
+OC1C(O1)OCC,104.047344116,3,1,-0.3024,True,False,"['[4*]CC', '[13*]C1OC1O', '[3*]O[3*]']",False,Geminal diol/triol
+OC1C(O1)CCO,104.047344116,3,2,-0.9140000000000001,True,False,"['[13*]C1OC1O', '[8*]CCO']",False,Geminal diol/triol
+CC1C(O1)OCO,104.047344116,3,1,-0.30240000000000006,True,False,"['[13*]C1OC1C', '[3*]OCO']",False,Geminal diol/triol
+OC1C(C1)OCO,104.047344116,3,2,-0.9140000000000001,True,False,"['[15*]C1CC1O', '[3*]OCO']",False,Geminal diol/triol
+OC1C(O1)COC,104.047344116,3,1,-0.6500000000000001,True,False,"['[13*]C1OC1O', '[4*]C[8*]', '[3*]OC']",False,Geminal diol/triol
+CC1C(O1)OOC,104.047344116,3,0,0.3091999999999999,True,False,"['[3*]OOC', '[13*]C1OC1C']",False,"Geminal diol/triol, Peroxide"
+OC1C(C1)OOC,104.047344116,3,1,-0.3024,True,False,"['[15*]C1CC1O', '[3*]OOC']",False,Peroxide
+CC1C(O1)COO,104.047344116,3,1,0.2632999999999999,True,False,"['[4*]C[8*]', '[13*]C1OC1C', '[3*]OO']",False,Peroxide
+OC1C(C1)COO,104.047344116,3,2,-0.14320000000000005,True,False,"['[15*]C1CC1O', '[4*]C[8*]', '[3*]OO']",False,Peroxide
+CC1C(C1)OOO,104.047344116,3,1,0.8160000000000001,True,False,"['[15*]C1CC1C', '[3*]OOO']",False,Peroxide
+OC(O)C1OCC1,104.04734411599999,3,2,-0.9140000000000001,True,False,"['[13*]C1CCO1', '[8*]C(O)O']",False,Geminal diol/triol
+CC(O)C1OCO1,104.047344116,3,1,-0.3024,True,False,"['[13*]C1OCO1', '[8*]C(C)O']",False,Geminal diol/triol
+OC(O)C1COC1,104.047344116,3,2,-1.0565000000000002,True,False,"['[15*]C1COC1', '[8*]C(O)O']",False,Geminal diol/triol
+CC(O)C1OOC1,104.047344116,3,1,-0.3024,True,False,"['[13*]C1COO1', '[8*]C(C)O']",False,Peroxide
+CC(C)C1OOO1,104.047344116,3,0,0.8619,True,False,"['[8*]C(C)C', '[13*]C1OOO1']",False,"Geminal diol/triol, Peroxide"
+OC1C(O1)C(O)C,104.047344116,3,2,-0.9156000000000004,True,False,"['[13*]C1OC1O', '[8*]C(C)O']",False,Geminal diol/triol
+CC1C(O1)C(O)O,104.047344116,3,2,-0.9156000000000002,True,False,"['[8*]C(O)O', '[13*]C1OC1C']",False,Geminal diol/triol
+OC1C(C1)C(O)O,104.047344116,3,3,-1.3221,True,False,"['[15*]C1CC1O', '[8*]C(O)O']",False,Geminal diol/triol
+COC(OC)=CO,104.047344116,3,1,0.6361000000000001,True,False,['COC(=CO)OC'],False,"Geminal diol/triol, Enol"
+COC(OC)C=O,104.047344116,3,0,-0.1958000000000002,True,False,"['[4*]C([4*])C=O', '[3*]OC']",False,Geminal diol/triol
+CC=C(OC)OO,104.047344116,3,1,0.9837,True,False,['CC=C(OC)OO'],False,"Geminal diol/triol, Enol, Peroxide"
+C=CC(OC)OO,104.047344116,3,1,0.6345000000000001,True,False,"['[3*]OO', '[4*]C([4*])C=C', '[3*]OC']",False,"Geminal diol/triol, Peroxide"
+COC(CO)=CO,104.047344116,3,2,0.024500000000000077,True,False,['COC(=CO)CO'],False,Enol
+COC(CO)C=O,104.047344116,3,1,-0.8074000000000001,True,False,"['[4*]C(C=O)CO', '[3*]OC']",True,N/A
+CCC(=CO)OO,104.047344116,3,2,1.2854,True,False,['CCC(=CO)OO'],False,"Enol, Peroxide"
+CC=C(CO)OO,104.047344116,3,2,0.3721,True,False,"['[7*]C(CO)OO', '[7*]CC']",False,"Enol, Peroxide"
+CCC(C=O)OO,104.047344116,3,1,0.45349999999999996,True,False,"['[4*]C(C=O)CC', '[3*]OO']",False,Peroxide
+C=CC(CO)OO,104.047344116,3,2,0.02289999999999992,True,False,"['[4*]C(C=C)CO', '[3*]OO']",False,Peroxide
+OCC(CO)=CO,104.047344116,3,3,-0.5871,True,False,['OC=C(CO)CO'],False,Enol
+OCC(CO)C=O,104.047344116,3,2,-1.2139000000000002,True,False,['O=CC(CO)CO'],True,N/A
+CCC1(OC)OO1,104.047344116,3,0,0.6584,True,False,"['[13*]C1([13*])OO1', '[8*]CC', '[4*]C1([13*])OO1', '[3*]OC']",False,"Geminal diol/triol, Peroxide"
+COC1(OC)OC1,104.047344116,3,0,-0.036799999999999944,True,False,"['[13*]C1([13*])CO1', '[3*]OC']",False,Geminal diol/triol
+COC1(OO)CC1,104.047344116,3,1,0.6125,True,False,"['[3*]OO', '[15*]C1([15*])CC1', '[3*]OC']",False,"Geminal diol/triol, Peroxide"
+CCC1(CO)OO1,104.047344116,3,1,0.04680000000000001,True,False,"['[8*]CO', '[13*]C1([13*])OO1', '[8*]CC']",False,"Geminal diol/triol, Peroxide"
+COC1(CO)OC1,104.047344116,3,1,-0.6484000000000001,True,False,"['[8*]CO', '[13*]C1([13*])CO1', '[4*]C1([13*])CO1', '[3*]OC']",False,Geminal diol/triol
+CCC1(OO)OC1,104.047344116,3,1,0.6125,True,False,"['[4*]C1([13*])CO1', '[13*]C1([13*])CO1', '[8*]CC', '[3*]OO']",False,"Geminal diol/triol, Peroxide"
+OCC1(OO)CC1,104.047344116,3,2,0.0008999999999998454,True,False,"['[8*]CO', '[15*]C1([15*])CC1', '[4*]C1([15*])CC1', '[3*]OO']",False,Peroxide
+OCC1(CO)OC1,104.047344116,3,2,-1.2600000000000002,True,False,"['[8*]CO', '[13*]C1([13*])CO1']",True,N/A
+COCC=COO,104.047344116,3,1,0.6361000000000001,True,False,"['[4*]CC=COO', '[3*]OC']",False,"Enol, Peroxide"
+COC=CCOO,104.047344116,3,1,0.6361000000000001,True,False,"['[4*]CC=COC', '[3*]OO']",False,"Enol, Peroxide"
+COCOC=CO,104.047344116,3,1,0.6361000000000001,True,False,['COCOC=CO'],False,"Geminal diol/triol, Enol"
+COCOCC=O,104.047344116,3,0,-0.19419999999999993,True,False,"['[3*]OCOC', '[4*]CC=O']",False,Geminal diol/triol
+CC=COCOO,104.047344116,3,1,0.9837,True,False,['CC=COCOO'],False,"Geminal diol/triol, Enol, Peroxide"
+C=CCOCOO,104.047344116,3,1,0.6360999999999999,True,False,"['[3*]OCOO', '[4*]CC=C']",False,"Geminal diol/triol, Peroxide"
+OCCC=COO,104.047344116,3,2,0.37209999999999993,True,False,['OCCC=COO'],False,"Enol, Peroxide"
+OCC=CCOO,104.047344116,3,2,0.02449999999999991,True,False,"['[4*]CC[7*]', '[7*]CCO', '[3*]OO']",False,Peroxide
+OC=CCCOO,104.047344116,3,2,0.9378,True,False,"['[4*]CCC=CO', '[3*]OO']",False,"Enol, Peroxide"
+O=CCCCOO,104.047344116,3,1,0.4551,True,False,"['[4*]CCCC=O', '[3*]OO']",False,Peroxide
+OCCOC=CO,104.047344116,3,2,0.02449999999999991,True,False,"['[4*]CCO', '[3*]OC=CO']",False,Enol
+OCCOCC=O,104.047344116,3,1,-0.8058000000000003,True,False,"['[4*]CCO', '[3*]O[3*]', '[4*]CC=O']",True,N/A
+COC=COOC,104.047344116,3,0,0.6819999999999999,True,False,['COC=COOC'],False,"Enol, Peroxide"
+COCOOC=C,104.047344116,3,0,0.682,True,False,['C=COOCOC'],False,"Geminal diol/triol, Enol, Peroxide"
+CC=COOOC,104.047344116,3,0,1.0295999999999998,True,False,['CC=COOOC'],False,"Enol, Peroxide"
+C=CCOOOC,104.047344116,3,0,0.6819999999999999,True,False,"['[3*]OOOC', '[4*]CC=C']",False,Peroxide
+OOC=COCC,104.04734411599999,3,1,0.9837,True,False,"['[3*]OC=COO', '[4*]CC']",False,"Enol, Peroxide"
+OOCCOC=C,104.04734411599999,3,1,0.6360999999999999,True,False,"['[3*]OC=C', '[4*]CC[4*]', '[3*]OO']",False,"Enol, Peroxide"
+OCC=COOC,104.047344116,3,1,0.07040000000000002,True,False,['COOC=CCO'],False,"Enol, Peroxide"
+OC=CCOOC,104.047344116,3,1,0.6360999999999999,True,False,"['[3*]OOC', '[4*]CC=CO']",False,"Enol, Peroxide"
+O=CCCOOC,104.047344116,3,0,0.15339999999999998,True,False,"['[3*]OOC', '[4*]CCC=O']",False,Peroxide
+OC=COOCC,104.047344116,3,1,0.9837,True,False,"['[3*]OOC=CO', '[4*]CC']",False,"Enol, Peroxide"
+OCCOOC=C,104.047344116,3,1,0.07040000000000002,True,False,"['[4*]CCO', '[3*]OOC=C']",False,"Enol, Peroxide"
+O=CCOOCC,104.047344116,3,0,0.15339999999999998,True,False,"['[4*]CC', '[3*]OO[3*]', '[4*]CC=O']",False,Peroxide
+COC=COCO,104.047344116,3,1,0.07040000000000007,True,False,['COC=COCO'],False,"Geminal diol/triol, Enol"
+COCCOC=O,104.047344116,3,0,-0.19419999999999993,True,False,"['[3*]OC=O', '[4*]CC[4*]', '[3*]OC']",True,N/A
+CCC=COOO,104.047344116,3,1,1.3313000000000001,True,False,['CCC=COOO'],False,"Enol, Peroxide"
+CC=CCOOO,104.047344116,3,1,0.9837,True,False,"['[4*]CC[7*]', '[7*]CC', '[3*]OOO']",False,Peroxide
+C=CCCOOO,104.047344116,3,1,0.9837,True,False,"['[4*]CCC=C', '[3*]OOO']",False,Peroxide
+CC=COOCO,104.047344116,3,1,0.418,True,False,['CC=COOCO'],False,"Geminal diol/triol, Enol, Peroxide"
+CCCOOC=O,104.047344116,3,0,0.501,True,False,"['[4*]CCC', '[3*]OOC=O']",False,Peroxide
+C=CCOOCO,104.047344116,3,1,0.07039999999999996,True,False,"['[3*]OOCO', '[4*]CC=C']",False,"Geminal diol/triol, Peroxide"
+OCC=COCO,104.047344116,3,2,-0.5412000000000001,True,False,['OCC=COCO'],False,"Geminal diol/triol, Enol"
+OC=CCOCO,104.047344116,3,2,0.024499999999999966,True,False,"['[4*]CC=CO', '[3*]OCO']",False,"Geminal diol/triol, Enol"
+OCCCOC=O,104.047344116,3,1,-0.45820000000000016,True,False,"['[3*]OC=O', '[4*]CCCO']",True,N/A
+O=CCCOCO,104.047344116,3,1,-0.4581999999999999,True,False,"['[4*]CCC=O', '[3*]OCO']",False,Geminal diol/triol
+C=COCOOC,104.047344116,3,0,0.6819999999999999,True,False,['C=COCOOC'],False,"Geminal diol/triol, Enol, Peroxide"
+CCOOOC=C,104.047344116,3,0,1.0295999999999998,True,False,"['[4*]CC', '[3*]OOOC=C']",False,"Enol, Peroxide"
+CCOCOC=O,104.047344116,3,0,0.15339999999999998,True,False,"['[3*]OCOC=O', '[4*]CC']",False,Geminal diol/triol
+C=COCOCO,104.047344116,3,1,0.07039999999999996,True,False,['C=COCOCO'],False,"Geminal diol/triol, Enol"
+OC1C(OC)OC1,104.047344116,3,1,-0.6500000000000001,True,False,"['[13*]C1OCC1O', '[3*]OC']",False,Geminal diol/triol
+CC1C(OO)OC1,104.047344116,3,1,0.4684,True,False,"['[13*]C1OCC1C', '[3*]OO']",False,"Geminal diol/triol, Peroxide"
+OC1C(OO)CC1,104.047344116,3,2,-0.0006999999999999784,True,False,"['[15*]C1CCC1O', '[3*]OO']",False,Peroxide
+OC1C(CO)OC1,104.047344116,3,2,-1.2616,True,False,"['[8*]CO', '[13*]C1OCC1O']",True,N/A
+CC1C(OC)OO1,104.047344116,3,0,0.3091999999999999,True,False,"['[13*]C1OOC1C', '[3*]OC']",False,"Geminal diol/triol, Peroxide"
+OC1C(OC)CO1,104.047344116,3,1,-0.6500000000000001,True,False,"['[15*]C1COC1O', '[3*]OC']",False,Geminal diol/triol
+OC1C(CC)OO1,104.047344116,3,1,0.04519999999999991,True,False,"['[13*]C1OOC1O', '[8*]CC']",False,"Geminal diol/triol, Peroxide"
+CC1C(OO)CO1,104.047344116,3,1,0.2632999999999999,True,False,"['[15*]C1COC1C', '[3*]OO']",False,Peroxide
+CC1C(CO)OO1,104.047344116,3,1,-0.30240000000000006,True,False,"['[8*]CO', '[13*]C1OOC1C']",False,Peroxide
+OC1C(CO)CO1,104.047344116,3,2,-1.0565,True,False,"['[8*]CO', '[15*]C1COC1O']",False,Geminal diol/triol
+OCC1C(CO)O1,104.047344116,3,2,-1.2616,True,False,"['[8*]CO', '[13*]C1OC1[13*]']",True,N/A
+COC1C(OC)O1,104.047344116,3,0,-0.03839999999999999,True,False,"['[13*]C1OC1[13*]', '[3*]OC']",False,Geminal diol/triol
+OOC1C(CC)O1,104.047344116,3,1,0.6109,True,False,"['[8*]CC', '[13*]C1OC1[13*]', '[3*]OO']",False,"Geminal diol/triol, Peroxide"
+COC1C(OO)C1,104.047344116,3,1,0.2632999999999999,True,False,"['[3*]OO', '[15*]C1CC1[15*]', '[3*]OC']",False,Peroxide
+OOC1C(CO)C1,104.047344116,3,2,-0.14320000000000016,True,False,"['[8*]CO', '[15*]C1CC1[15*]', '[3*]OO']",False,Peroxide
+COC1C(CO)O1,104.047344116,3,1,-0.6500000000000001,True,False,"['[8*]CO', '[13*]C1OC1[13*]', '[3*]OC']",False,Geminal diol/triol
+COC1OCCO1,104.047344116,3,0,-0.036799999999999944,True,False,"['[13*]C1OCCO1', '[3*]OC']",False,Geminal diol/triol
+OOC1OCCC1,104.04734411599999,3,1,0.6125,True,False,"['[13*]C1CCCO1', '[3*]OO']",False,"Geminal diol/triol, Peroxide"
+OCC1OCCO1,104.047344116,3,1,-0.6484000000000001,True,False,"['[8*]CO', '[13*]C1OCCO1']",False,Geminal diol/triol
+COC1COOC1,104.047344116,3,0,-0.036799999999999944,True,False,"['[15*]C1COOC1', '[3*]OC']",False,Peroxide
+COC1CCOO1,104.047344116,3,0,0.31079999999999997,True,False,"['[13*]C1CCOO1', '[3*]OC']",False,"Geminal diol/triol, Peroxide"
+CCC1OOOC1,104.047344116,3,0,0.6584,True,False,"['[8*]CC', '[13*]C1COOO1']",False,Peroxide
+COC1OCOC1,104.047344116,3,0,-0.036799999999999944,True,False,"['[13*]C1COCO1', '[3*]OC']",False,Geminal diol/triol
+CCC1OCOO1,104.047344116,3,0,0.6584,True,False,"['[13*]C1OCOO1', '[8*]CC']",False,"Geminal diol/triol, Peroxide"
+OCC1COOC1,104.047344116,3,1,-0.4433,True,False,"['[8*]CO', '[15*]C1COOC1']",False,Peroxide
+OOC1CCOC1,104.047344116,3,1,0.2648999999999999,True,False,"['[15*]C1CCOC1', '[3*]OO']",False,Peroxide
+OCC1CCOO1,104.047344116,3,1,-0.30079999999999996,True,False,"['[8*]CO', '[13*]C1CCOO1']",False,Peroxide
+OCC1OCOC1,104.047344116,3,1,-0.6484000000000001,True,False,"['[8*]CO', '[13*]C1COCO1']",False,Geminal diol/triol
+OCC(C)C1OO1,104.047344116,3,1,-0.09730000000000016,True,False,"['[13*]C1OO1', '[8*]C(C)CO']",False,"Geminal diol/triol, Peroxide"
+CCC(O)C1OO1,104.047344116,3,1,0.04519999999999996,True,False,"['[13*]C1OO1', '[8*]C(O)CC']",False,"Geminal diol/triol, Peroxide"
+OCC(O)C1OC1,104.047344116,3,2,-1.2616,True,False,"['[13*]C1CO1', '[8*]C(O)CO']",True,N/A
+OOC(O)C1CC1,104.04734411599999,3,2,0.20440000000000003,True,False,"['[15*]C1CC1', '[4*]C([8*])O', '[3*]OO']",False,"Geminal diol/triol, Peroxide"
+COC(C)C1OO1,104.047344116,3,0,0.3091999999999999,True,False,"['[13*]C1OO1', '[4*]C([8*])C', '[3*]OC']",False,"Geminal diol/triol, Peroxide"
+OOC(C)C1OC1,104.047344116,3,1,0.2633000000000001,True,False,"['[4*]C([8*])C', '[13*]C1CO1', '[3*]OO']",False,Peroxide
+COC(O)C1OC1,104.047344116,3,1,-0.6500000000000001,True,False,"['[4*]C([8*])O', '[13*]C1CO1', '[3*]OC']",False,Geminal diol/triol
+OOCOC1CC1,104.04734411599999,3,1,0.6125,True,False,"['[15*]C1CC1', '[3*]OCOO']",False,"Geminal diol/triol, Peroxide"
+COCCC1OO1,104.047344116,3,0,0.31079999999999997,True,False,"['[13*]C1OO1', '[4*]CC[8*]', '[3*]OC']",False,"Geminal diol/triol, Peroxide"
+COCOC1OC1,104.047344116,3,0,-0.036799999999999944,True,False,"['[3*]OCOC', '[13*]C1CO1']",False,Geminal diol/triol
+CCCOC1OO1,104.047344116,3,0,0.6584,True,False,"['[13*]C1OO1', '[3*]O[3*]', '[4*]CCC']",False,"Geminal diol/triol, Peroxide"
+OOCCC1OC1,104.047344116,3,1,0.2648999999999999,True,False,"['[4*]CC[8*]', '[13*]C1CO1', '[3*]OO']",False,Peroxide
+OCCCC1OO1,104.047344116,3,1,0.04679999999999995,True,False,"['[13*]C1OO1', '[8*]CCCO']",False,"Geminal diol/triol, Peroxide"
+OCCOC1OC1,104.047344116,3,1,-0.6484000000000001,True,False,"['[4*]CCO', '[3*]O[3*]', '[13*]C1CO1']",False,Geminal diol/triol
+COOOC1CC1,104.04734411599999,3,0,0.6584,True,False,"['[15*]C1CC1', '[3*]OOOC']",False,Peroxide
+OOOCC1CC1,104.04734411599999,3,1,0.8175999999999999,True,False,"['[15*]C1CC1', '[4*]C[8*]', '[3*]OOO']",False,Peroxide
+OCOOC1CC1,104.04734411599999,3,1,0.04679999999999995,True,False,"['[15*]C1CC1', '[3*]OOCO']",False,"Geminal diol/triol, Peroxide"
+COOCC1OC1,104.047344116,3,0,-0.036799999999999944,True,False,"['[3*]OOC', '[4*]C[8*]', '[13*]C1CO1']",False,Peroxide
+CCOCC1OO1,104.047344116,3,0,0.31079999999999997,True,False,"['[13*]C1OO1', '[4*]CC', '[4*]C[8*]', '[3*]O[3*]']",False,"Geminal diol/triol, Peroxide"
+CCOOC1OC1,104.047344116,3,0,0.31079999999999997,True,False,"['[4*]CC', '[3*]OO[3*]', '[13*]C1CO1']",False,"Geminal diol/triol, Peroxide"
+OCOCC1OC1,104.047344116,3,1,-0.6484000000000001,True,False,"['[4*]C[8*]', '[13*]C1CO1', '[3*]OCO']",False,Geminal diol/triol
+OC1C(C1O)OC,104.047344116,3,2,-1.2632000000000003,True,False,"['[15*]C1C(O)C1O', '[3*]OC']",True,N/A
+CC1C(C1O)OO,104.047344116,3,2,-0.14480000000000004,True,False,"['[15*]C1C(C)C1O', '[3*]OO']",False,Peroxide
+OC1C(C1O)CO,104.047344116,3,3,-1.6697,True,False,"['[8*]CO', '[15*]C1C(O)C1O']",True,N/A
+C1OCCOOC1,104.047344116,3,0,-0.0351999999999999,True,False,['C1COOCCO1'],False,Peroxide
+C1CCOOOC1,104.047344116,3,0,0.66,True,False,['C1CCOOOC1'],False,Peroxide
+C1CCOCOO1,104.047344116,3,0,0.3124,True,False,['C1COCOOC1'],False,"Geminal diol/triol, Peroxide"
+C1OCOCOC1,104.047344116,3,0,-0.0351999999999999,True,False,['C1COCOCO1'],False,Geminal diol/triol

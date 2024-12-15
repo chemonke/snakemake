@@ -1,6 +1,6 @@
 from rdkit import Chem
 from rdkit.Chem import Crippen, Lipinski, Descriptors
-import csv
+import pandas as pd
 
 def check_lipinski(smiles):
     mol = Chem.MolFromSmiles(smiles)
@@ -31,39 +31,27 @@ def check_lipinski(smiles):
         "lipinski_valid": num_violations <= 1,  # Valid if at most 1 violation
     }, False  # No error
 
-
-def process_surge_output(input_file, output_file):
+def process_lipinski(df):
     results = []
-    with open(input_file, 'r') as infile:
-        for line in infile:
-            smiles = line.strip()
-            properties, error = check_lipinski(smiles)
-            if error:
-                results.append({
-                    "SMILES": smiles,
-                    "MW": None,
-                    "HBA": None,
-                    "HBD": None,
-                    "LogP": None,
-                    "Valid": False,
-                    "Error": True,  # Set Error to True for invalid SMILES
-                })
-            else:
-                results.append({
-                    "SMILES": smiles,
-                    **properties,
-                    "Error": False  # Set Error to False for valid SMILES
-                })
-
-    # Explicitly set the desired column order
-    fieldnames = ["SMILES", "MW", "HBA", "HBD", "LogP", "lipinski_valid", "Error"]
-
-    with open(output_file, 'w', newline='') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
-        for result in results:
-            writer.writerow(result)
-
+    for smiles in df['SMILES']:
+        properties, error = check_lipinski(smiles)
+        if error:
+            results.append({
+                "SMILES": smiles,
+                "MW": None,
+                "HBA": None,
+                "HBD": None,
+                "LogP": None,
+                "lipinski_valid": False,
+                "Error": True,  # Set Error to True for invalid SMILES
+            })
+        else:
+            results.append({
+                "SMILES": smiles,
+                **properties,
+                "Error": False  # Set Error to False for valid SMILES
+            })
+    return pd.DataFrame(results)
 
 if __name__ == "__main__":
     import argparse
@@ -72,4 +60,9 @@ if __name__ == "__main__":
     parser.add_argument("--output", required=True, help="Output file to save results.")
     args = parser.parse_args()
 
-    process_surge_output(args.input, args.output)
+    # Read input SMILES
+    input_df = pd.read_csv(args.input, names=["SMILES"])
+    output_df = process_lipinski(input_df)
+
+    # Save results
+    output_df.to_csv(args.output, index=False)
